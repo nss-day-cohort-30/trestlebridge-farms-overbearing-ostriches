@@ -4,28 +4,31 @@ using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
 using Trestlebridge.Models.Animals;
 
-namespace Trestlebridge.Actions {
-    public class ChooseGrazingField {
-        public static void CollectInput (Farm farm, IGrazing animal) {
+namespace Trestlebridge.Actions
+{
+    public class ChooseGrazingField
+    {
+        public static void CollectInput(Farm farm, IGrazing animal)
+        {
             Console.Clear();
 
-            for (int i = 0; i < farm.GrazingFields.Count; i++)
+            for (int i = 0; i < farm.GrazingFieldList.Count; i++)
             {
-                Console.WriteLine ($"{i + 1}. Grazing Field");
+                Console.WriteLine($"{i + 1}. Grazing Field");
             }
 
-            Console.WriteLine ();
+            Console.WriteLine();
 
             // How can I output the type of animal chosen here?
-            Console.WriteLine ($"Place the animal where?");
+            Console.WriteLine($"Place the animal where?");
 
-            Console.Write ("> ");
-            int choice = Int32.Parse(Console.ReadLine ());
+            Console.Write("> ");
+            int choice = Int32.Parse(Console.ReadLine());
 
             //Index had to subtracted. The reason is because the input does not actually
             //equal the index position of the field
-            choice = choice -1;
-            farm.GrazingFields[choice].AddResource(animal);
+            choice = choice - 1;
+            farm.GrazingFieldList[choice].AddResource(animal);
 
 
             /*

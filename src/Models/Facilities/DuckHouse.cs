@@ -6,12 +6,12 @@ using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class GrazingField : IFacility<IGrazing>
+    public class DuckHouse : IFacility<IGrazing>
     {
-        private int _capacity = 20;
+        private int _capacity = 12;
         private Guid _id = Guid.NewGuid();
 
-        private List<IGrazing> _grazingAnimalList = new List<IGrazing>();
+        private List<IGrazing> _animals = new List<IGrazing>();
 
         public double Capacity
         {
@@ -23,17 +23,17 @@ namespace Trestlebridge.Models.Facilities
 
         public void AddResource(IGrazing animal)
         {
-            if (_grazingAnimalList.Count < _capacity)
+            if (_animals.Count < _capacity)
             {
-                _grazingAnimalList.Add(animal);
+                _animals.Add(animal);
             }
         }
 
         public void AddResource(List<IGrazing> animals)  // TODO: Take out this method for boilerplate
         {
-            if (_grazingAnimalList.Count + animals.Count <= _capacity)
+            if (_animals.Count + animals.Count <= _capacity)
             {
-                _grazingAnimalList.AddRange(animals);
+                _animals.AddRange(animals);
             }
         }
 
@@ -42,8 +42,8 @@ namespace Trestlebridge.Models.Facilities
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Grazing field {shortId} has {this._grazingAnimalList.Count} animals\n");
-            this._grazingAnimalList.ForEach(a => output.Append($"   {a}\n"));
+            output.Append($"Grazing field {shortId} has {this._animals.Count} animals\n");
+            this._animals.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
         }
