@@ -16,6 +16,15 @@ namespace Trestlebridge.Actions
 
             Console.Write ("> ");
             string choice = Console.ReadLine ();
+
+            switch (Int32.Parse(choice))
+            {
+                case 1:
+                    ChooseGrazingField.CollectInput(farm, new Cow());
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
