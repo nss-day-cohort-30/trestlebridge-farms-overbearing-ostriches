@@ -6,12 +6,12 @@ using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class PlowedField : IAgriculturalField, IFacility
+    public class PlowedField : IPlantFacility<IPlowedFieldFlower>, IFacility
     {
         private int _capacity = 13;
         private Guid _id = Guid.NewGuid();
 
-        private List<IGrazing> _animals = new List<IGrazing>();
+        private List<IPlowedFieldFlower> _animals = new List<IPlowedFieldFlower>();
 
         public double Capacity
         {
@@ -21,7 +21,7 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
-        public void AddResource(IGrazing animal)
+        public void AddPlantResource(IPlowedFieldFlower animal)
         {
             if (_animals.Count < _capacity)
             {
@@ -29,7 +29,7 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
-        public void AddResource(List<IGrazing> animals)  // TODO: Take out this method for boilerplate
+        public void AddPlantResource(List<IPlowedFieldFlower> animals)  // TODO: Take out this method for boilerplate
         {
             if (_animals.Count + animals.Count <= _capacity)
             {

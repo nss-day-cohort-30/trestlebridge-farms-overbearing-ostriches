@@ -38,18 +38,20 @@ namespace Trestlebridge.Models
         public void AddGrazingField(GrazingField field)
         {
             GrazingFieldList.Add(field);
+            FacilityList.Add(field);
         }
 
         public void AddPlowedField(PlowedField field)
         {
             PlowedFieldList.Add(field);
+            FacilityList.Add(field);
         }
 
         public override string ToString()
         {
             StringBuilder report = new StringBuilder();
 
-            GrazingFieldList.ForEach(gf => report.Append(gf));
+            FacilityList.ForEach(gf => report.Append(gf));
 
             return report.ToString();
         }
