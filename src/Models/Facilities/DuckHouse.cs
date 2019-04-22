@@ -2,16 +2,17 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
+using Trestlebridge.Models.Animals;
 
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class DuckHouse : IFacility<IGrazing>
+    public class DuckHouse : IAnimalFacility<Duck>
     {
         private int _capacity = 12;
         private Guid _id = Guid.NewGuid();
 
-        private List<IGrazing> _animals = new List<IGrazing>();
+        private List<Duck> _duckList = new List<Duck>();
 
         public double Capacity
         {
@@ -21,19 +22,19 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
-        public void AddResource(IGrazing animal)
+        public void AddAnimalResource(Duck animal)
         {
-            if (_animals.Count < _capacity)
+            if (_duckList.Count < _capacity)
             {
-                _animals.Add(animal);
+                _duckList.Add(animal);
             }
         }
 
-        public void AddResource(List<IGrazing> animals)  // TODO: Take out this method for boilerplate
+        public void AddAnimalResource(List<Duck> animals)  // TODO: Take out this method for boilerplate
         {
-            if (_animals.Count + animals.Count <= _capacity)
+            if (_duckList.Count + animals.Count <= _capacity)
             {
-                _animals.AddRange(animals);
+                _duckList.AddRange(animals);
             }
         }
 
@@ -42,8 +43,8 @@ namespace Trestlebridge.Models.Facilities
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Grazing field {shortId} has {this._animals.Count} animals\n");
-            this._animals.ForEach(a => output.Append($"   {a}\n"));
+            output.Append($"Grazing field {shortId} has {this._duckList.Count} animals\n");
+            this._duckList.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
         }
