@@ -7,7 +7,7 @@ using Trestlebridge.Models.Animals;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class DuckHouse : IFacility<Duck>
+    public class DuckHouse : IAnimalFacility<Duck>
     {
         private int _capacity = 12;
         private Guid _id = Guid.NewGuid();
@@ -22,7 +22,7 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
-        public void AddResource(Duck animal)
+        public void AddAnimalResource(Duck animal)
         {
             if (_duckList.Count < _capacity)
             {
@@ -30,7 +30,7 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
-        public void AddResource(List<Duck> animals)  // TODO: Take out this method for boilerplate
+        public void AddAnimalResource(List<Duck> animals)  // TODO: Take out this method for boilerplate
         {
             if (_duckList.Count + animals.Count <= _capacity)
             {
