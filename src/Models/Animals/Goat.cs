@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
+using Trestlebridge.Models.Classes;
 
 namespace Trestlebridge.Models.Animals
 {
-    public class Goat : IResource, IGrazing, IMeatProducing
+    public class Goat : Animal, IResource, IGrazing, IMeatProducing
     {
 
         private Guid _id = Guid.NewGuid();

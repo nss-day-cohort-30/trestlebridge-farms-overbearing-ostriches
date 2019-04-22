@@ -7,7 +7,7 @@ using Trestlebridge.Models.Animals;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class ChickenHouse : IAnimalFacility<Chicken>
+    public class ChickenHouse : IAnimalFacility<Chicken>, IFacility
     {
         private int _capacity = 15;
         private Guid _id = Guid.NewGuid();
