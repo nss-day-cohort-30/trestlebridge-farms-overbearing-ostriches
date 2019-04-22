@@ -1,5 +1,5 @@
 namespace Trestlebridge.Interfaces {
-    public class INaturalFieldFlower{
+    public interface INaturalFieldFlower{
 
     }
 }
