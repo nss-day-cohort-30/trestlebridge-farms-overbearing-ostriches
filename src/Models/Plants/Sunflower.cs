@@ -1,9 +1,10 @@
 using System;
 using Trestlebridge.Interfaces;
+using Trestlebridge.Models.Classes;
 
 namespace Trestlebridge.Models.Plants
 {
-    public class Sunflower : IResource, ISeedProducing, ICompostProducing 
+    public class Sunflower : Plant, IResource, ISeedProducing, ICompostProducing, IPlowedFieldFlower, INaturalFieldFlower
     {
         private int _seedsProduced = 650;
         public string Type { get; } = "Sunflower";

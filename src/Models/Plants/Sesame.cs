@@ -1,9 +1,10 @@
 using System;
 using Trestlebridge.Interfaces;
+using Trestlebridge.Models.Classes;
 
 namespace Trestlebridge.Models.Plants
 {
-    public class Sesame : IResource, ISeedProducing
+    public class Sesame : Plant, IResource, ISeedProducing, IPlowedFieldFlower 
     {
         private int _seedsProduced = 520;
         public string Type { get; } = "Sesame";

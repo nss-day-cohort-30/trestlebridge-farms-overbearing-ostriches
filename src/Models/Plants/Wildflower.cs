@@ -1,9 +1,10 @@
 using System;
 using Trestlebridge.Interfaces;
+using Trestlebridge.Models.Classes;
 
 namespace Trestlebridge.Models.Plants
 {
-    public class Wildflower : IResource, ICompostProducing, INaturalFieldFlower
+    public class Wildflower : Plant, IResource, ICompostProducing, INaturalFieldFlower
     {
     
         public string Type { get; } = "Wildflower";
