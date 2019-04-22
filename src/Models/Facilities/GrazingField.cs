@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using Trestlebridge.Interfaces;
 
 
-namespace Trestlebridge.Models.Facilities {
+namespace Trestlebridge.Models.Facilities
+{
     public class GrazingField : IFacility<IGrazing>
     {
         private int _capacity = 50;
@@ -12,22 +13,26 @@ namespace Trestlebridge.Models.Facilities {
 
         private List<IGrazing> _grazingAnimalList = new List<IGrazing>();
 
-        public double Capacity {
-            get {
+        public double Capacity
+        {
+            get
+            {
                 return _capacity;
             }
         }
 
-        public void AddResource (IGrazing animal)
+        public void AddResource(IGrazing animal)
         {
-            if (_grazingAnimalList.Count < _capacity) {
+            if (_grazingAnimalList.Count < _capacity)
+            {
                 _grazingAnimalList.Add(animal);
             }
         }
 
-        public void AddResource (List<IGrazing> animals)  // TODO: Take out this method for boilerplate
+        public void AddResource(List<IGrazing> animals)  // TODO: Take out this method for boilerplate
         {
-            if (_grazingAnimalList.Count + animals.Count <= _capacity) {
+            if (_grazingAnimalList.Count + animals.Count <= _capacity)
+            {
                 _grazingAnimalList.AddRange(animals);
             }
         }
