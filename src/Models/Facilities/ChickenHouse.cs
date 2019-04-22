@@ -6,7 +6,7 @@ using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class ChickenHouse : IFacility<IGrazing>
+    public class ChickenHouse : IAnimalFacility<IGrazing>
     {
         private int _capacity = 15;
         private Guid _id = Guid.NewGuid();
