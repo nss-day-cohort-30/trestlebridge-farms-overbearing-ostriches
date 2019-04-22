@@ -1,7 +1,7 @@
 using System;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
-using Trestlebridge.Models.Animals;
+using Trestlebridge.Models.Plants;
 
 namespace Trestlebridge.Actions
 {
@@ -19,14 +19,17 @@ namespace Trestlebridge.Actions
             Console.Write("> ");
             string choice = Console.ReadLine();
 
-            // switch (Int32.Parse(choice))
-            // {
-            //     case 1:
-            //         ChooseGrazingField.CollectInput(farm, new ());
-            //         break;
-            //     default:
-            //         break;
-            // }
+            switch (Int32.Parse(choice))
+            {
+                case 1:
+                    ChoosePlantingField.CollectInput(farm, new Sunflower());
+                    break;
+                case 2:
+                    ChoosePlantingField.CollectInput(farm, new Wildflower());
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
