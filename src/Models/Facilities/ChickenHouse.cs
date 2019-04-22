@@ -7,7 +7,11 @@ using Trestlebridge.Models.Animals;
 
 namespace Trestlebridge.Models.Facilities
 {
+<<<<<<< HEAD
+    public class ChickenHouse : IAnimalFacility<IGrazing>
+=======
     public class ChickenHouse : IAnimalFacility<Chicken>
+>>>>>>> master
     {
         private int _capacity = 15;
         private Guid _id = Guid.NewGuid();
