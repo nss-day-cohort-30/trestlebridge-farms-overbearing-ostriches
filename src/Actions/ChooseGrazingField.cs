@@ -22,7 +22,11 @@ namespace Trestlebridge.Actions {
             Console.Write ("> ");
             int choice = Int32.Parse(Console.ReadLine ());
 
+            //Index had to subtracted. The reason is because the input does not actually
+            //equal the index position of the field
+            choice = choice -1;
             farm.GrazingFields[choice].AddResource(animal);
+
 
             /*
                 Couldn't get this to work. Can you?
