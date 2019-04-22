@@ -11,7 +11,7 @@ namespace Trestlebridge.Models.Facilities
         private int _capacity = 13;
         private Guid _id = Guid.NewGuid();
 
-        private List<IPlowedFieldFlower> _animals = new List<IPlowedFieldFlower>();
+        private List<IPlowedFieldFlower> _plowedFieldFlowerList = new List<IPlowedFieldFlower>();
 
         public double Capacity
         {
@@ -21,19 +21,19 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
-        public void AddPlantResource(IPlowedFieldFlower animal)
+        public void AddPlantResource(IPlowedFieldFlower plant)
         {
-            if (_animals.Count < _capacity)
+            if (_plowedFieldFlowerList.Count < _capacity)
             {
-                _animals.Add(animal);
+                _plowedFieldFlowerList.Add(plant);
             }
         }
 
-        public void AddPlantResource(List<IPlowedFieldFlower> animals)  // TODO: Take out this method for boilerplate
+        public void AddPlantResource(List<IPlowedFieldFlower> plants)  // TODO: Take out this method for boilerplate
         {
-            if (_animals.Count + animals.Count <= _capacity)
+            if (_plowedFieldFlowerList.Count + plants.Count <= _capacity)
             {
-                _animals.AddRange(animals);
+                _plowedFieldFlowerList.AddRange(plants);
             }
         }
 
@@ -42,8 +42,8 @@ namespace Trestlebridge.Models.Facilities
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Grazing field {shortId} has {this._animals.Count} animals\n");
-            this._animals.ForEach(a => output.Append($"   {a}\n"));
+            output.Append($"Plowed field {shortId} has {this._plowedFieldFlowerList.Count} plants\n");
+            this._plowedFieldFlowerList.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
         }
