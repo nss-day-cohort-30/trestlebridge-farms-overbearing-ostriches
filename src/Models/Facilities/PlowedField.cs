@@ -6,12 +6,12 @@ using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class PlowedField : IAgriculturalField, IFacility
+    public class PlowedField : IAgriculturalField, IPlantFacility<IPlowedFieldFlower>
     {
         private int _capacity = 13;
         private Guid _id = Guid.NewGuid();
 
-        private List<IGrazing> _animals = new List<IGrazing>();
+        private List<IPlowedFieldFlower> _plowedFieldFlower= new List<IPlowedFieldFlower>();
 
         public double Capacity
         {
@@ -21,19 +21,19 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
-        public void AddResource(IGrazing animal)
+        public void AddResource(IPlowedFieldFlower plant)
         {
-            if (_animals.Count < _capacity)
+            if (_plowedFieldFlower.Count < _capacity)
             {
-                _animals.Add(animal);
+                _plowedFieldFlower.Add(plant);
             }
         }
 
-        public void AddResource(List<IGrazing> animals)  // TODO: Take out this method for boilerplate
+        public void AddResource(List<IPlowedFieldFlower> plants)  // TODO: Take out this method for boilerplate
         {
-            if (_animals.Count + animals.Count <= _capacity)
+            if (_plowedFieldFlower.Count + plants.Count <= _capacity)
             {
-                _animals.AddRange(animals);
+                _plowedFieldFlower.AddRange(plants);
             }
         }
 
@@ -42,8 +42,8 @@ namespace Trestlebridge.Models.Facilities
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Grazing field {shortId} has {this._animals.Count} animals\n");
-            this._animals.ForEach(a => output.Append($"   {a}\n"));
+            output.Append($"Plowed field {shortId} has {this._plowedFieldFlower.Count} plants\n");
+            this._plowedFieldFlower.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
         }
