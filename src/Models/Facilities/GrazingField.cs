@@ -23,7 +23,6 @@ namespace Trestlebridge.Models.Facilities
 
         public void AddResource(IGrazing animal)
         {
-
             if (_grazingAnimalList.Count < _capacity)
             {
                 _grazingAnimalList.Add(animal);
