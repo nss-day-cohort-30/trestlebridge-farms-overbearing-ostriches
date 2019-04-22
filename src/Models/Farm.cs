@@ -34,7 +34,6 @@ namespace Trestlebridge.Models
                     break;
             }
         }
-
         public void AddGrazingField(GrazingField field)
         {
             GrazingFieldList.Add(field);
@@ -45,6 +44,22 @@ namespace Trestlebridge.Models
         {
             PlowedFieldList.Add(field);
             FacilityList.Add(field);
+        }
+        public void AddDuckHouse(DuckHouse duckHouse)
+        {
+            DuckHouseList.Add(duckHouse);
+            FacilityList.Add(duckHouse);
+        }
+        public void AddChickenHouse(ChickenHouse chickenHouse)
+        {
+            ChickenHouseList.Add(chickenHouse);
+            FacilityList.Add(chickenHouse);
+        }
+
+        public void AddNaturalField(NaturalField naturalField)
+        {
+            NaturalFieldList.Add(naturalField);
+            FacilityList.Add(naturalField);
         }
 
         public override string ToString()
