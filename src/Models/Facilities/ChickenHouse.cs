@@ -2,16 +2,17 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
+using Trestlebridge.Models.Animals;
 
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class ChickenHouse : IFacility<IGrazing>
+    public class ChickenHouse : IFacility<Chicken>
     {
         private int _capacity = 15;
         private Guid _id = Guid.NewGuid();
 
-        private List<IGrazing> _animals = new List<IGrazing>();
+        private List<Chicken> _chickenList = new List<Chicken>();
 
         public double Capacity
         {
@@ -21,19 +22,19 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
-        public void AddResource(IGrazing animal)
+        public void AddResource(Chicken animal)
         {
-            if (_animals.Count < _capacity)
+            if (_chickenList.Count < _capacity)
             {
-                _animals.Add(animal);
+                _chickenList.Add(animal);
             }
         }
 
-        public void AddResource(List<IGrazing> animals)  // TODO: Take out this method for boilerplate
+        public void AddResource(List<Chicken> animals)  // TODO: Take out this method for boilerplate
         {
-            if (_animals.Count + animals.Count <= _capacity)
+            if (_chickenList.Count + animals.Count <= _capacity)
             {
-                _animals.AddRange(animals);
+                _chickenList.AddRange(animals);
             }
         }
 
@@ -42,8 +43,8 @@ namespace Trestlebridge.Models.Facilities
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Grazing field {shortId} has {this._animals.Count} animals\n");
-            this._animals.ForEach(a => output.Append($"   {a}\n"));
+            output.Append($"Grazing field {shortId} has {this._chickenList.Count} animals\n");
+            this._chickenList.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
         }
