@@ -7,7 +7,12 @@ namespace Trestlebridge.Interfaces
     {
         double Capacity { get; }
 
+<<<<<<< HEAD
+        void AddPlantResource (T resource);
+        void AddPlantResource (List<T> resources);
+=======
         void AddPlantResource(T resource);
         void AddPlantResource(List<T> resources);
+>>>>>>> master
     }
 }
