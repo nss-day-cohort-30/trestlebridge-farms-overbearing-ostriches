@@ -6,12 +6,12 @@ using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class NaturalField : IAgriculturalField, IPlantFacility<INaturalFieldFlower>
+    public class NaturalField : IPlantFacility<INaturalFieldFlower>, IFacility
     {
         private int _capacity = 10;
         private Guid _id = Guid.NewGuid();
 
-        private List<IGrazing> _animals = new List<IGrazing>();
+        private List<INaturalFieldFlower> _naturalFieldFlowerList = new List<INaturalFieldFlower>();
 
         public double Capacity
         {
@@ -21,19 +21,19 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
-        public void AddResource(IGrazing animal)
+        public void AddPlantResource(INaturalFieldFlower flower)
         {
-            if (_animals.Count < _capacity)
+            if (_naturalFieldFlowerList.Count < _capacity)
             {
-                _animals.Add(animal);
+                _naturalFieldFlowerList.Add(flower);
             }
         }
 
-        public void AddResource(List<IGrazing> animals)  // TODO: Take out this method for boilerplate
+        public void AddPlantResource(List<INaturalFieldFlower> flowers)  // TODO: Take out this method for boilerplate
         {
-            if (_animals.Count + animals.Count <= _capacity)
+            if (_naturalFieldFlowerList.Count + flowers.Count <= _capacity)
             {
-                _animals.AddRange(animals);
+                _naturalFieldFlowerList.AddRange(flowers);
             }
         }
 
@@ -42,8 +42,8 @@ namespace Trestlebridge.Models.Facilities
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Grazing field {shortId} has {this._animals.Count} animals\n");
-            this._animals.ForEach(a => output.Append($"   {a}\n"));
+            output.Append($"Grazing field {shortId} has {this._naturalFieldFlowerList.Count} animals\n");
+            this._naturalFieldFlowerList.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
         }

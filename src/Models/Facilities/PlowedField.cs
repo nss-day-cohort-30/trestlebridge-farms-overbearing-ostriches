@@ -6,12 +6,12 @@ using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class PlowedField : IAgriculturalField, IPlantFacility<IPlowedFieldFlower>
+    public class PlowedField : IPlantFacility<IPlowedFieldFlower>, IFacility
     {
         private int _capacity = 13;
         private Guid _id = Guid.NewGuid();
 
-        private List<IPlowedFieldFlower> _plowedFieldFlower= new List<IPlowedFieldFlower>();
+        private List<IPlowedFieldFlower> _plowedFieldFlowerList = new List<IPlowedFieldFlower>();
 
         public double Capacity
         {
@@ -21,19 +21,19 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
-        public void AddResource(IPlowedFieldFlower plant)
+        public void AddPlantResource(IPlowedFieldFlower plant)
         {
-            if (_plowedFieldFlower.Count < _capacity)
+            if (_plowedFieldFlowerList.Count < _capacity)
             {
-                _plowedFieldFlower.Add(plant);
+                _plowedFieldFlowerList.Add(plant);
             }
         }
 
-        public void AddResource(List<IPlowedFieldFlower> plants)  // TODO: Take out this method for boilerplate
+        public void AddPlantResource(List<IPlowedFieldFlower> plants)  // TODO: Take out this method for boilerplate
         {
-            if (_plowedFieldFlower.Count + plants.Count <= _capacity)
+            if (_plowedFieldFlowerList.Count + plants.Count <= _capacity)
             {
-                _plowedFieldFlower.AddRange(plants);
+                _plowedFieldFlowerList.AddRange(plants);
             }
         }
 
@@ -42,8 +42,8 @@ namespace Trestlebridge.Models.Facilities
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Plowed field {shortId} has {this._plowedFieldFlower.Count} plants\n");
-            this._plowedFieldFlower.ForEach(a => output.Append($"   {a}\n"));
+            output.Append($"Plowed field {shortId} has {this._plowedFieldFlowerList.Count} plants\n");
+            this._plowedFieldFlowerList.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
         }
