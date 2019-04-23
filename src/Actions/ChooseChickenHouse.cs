@@ -39,13 +39,6 @@ namespace Trestlebridge.Actions
             // farm.PurchaseResource<IGrazing>(animal, choice);
 
         }
-        public override string ToString()
-        {
-            StringBuilder report = new StringBuilder();
 
-            FacilityList.ForEach(gf => report.Append(gf));
-
-            return report.ToString();
-        }
     }
 }

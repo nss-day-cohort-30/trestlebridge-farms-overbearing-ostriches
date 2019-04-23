@@ -18,10 +18,12 @@ namespace Trestlebridge.Models
 
         public List<NaturalField> NaturalFieldList { get; } = new List<NaturalField>();
 
+        public List<IFacility> FacilityWithSpace { get; set; } = new List<IFacility>();
+
         /*
-            This method must specify the correct product interface of the
-            resource being purchased.
-         */
+    This method must specify the correct product interface of the
+    resource being purchased.
+ */
         public void PurchaseResource<T>(IResource resource, int index)
         {
             Console.WriteLine(typeof(T).ToString());
@@ -66,7 +68,7 @@ namespace Trestlebridge.Models
         {
             StringBuilder report = new StringBuilder();
 
-            FacilityList.ForEach(gf => report.Append(gf));
+            FacilityList.ForEach(facility => report.Append(facility));
 
             return report.ToString();
         }

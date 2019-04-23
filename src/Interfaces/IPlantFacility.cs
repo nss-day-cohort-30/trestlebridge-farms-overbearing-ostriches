@@ -6,7 +6,6 @@ namespace Trestlebridge.Interfaces
     public interface IPlantFacility<T>
     {
         double Capacity { get; }
-
         void AddPlantResource(T resource);
         void AddPlantResource(List<T> resources);
     }

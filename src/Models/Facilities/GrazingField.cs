@@ -2,6 +2,7 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
+using System.Linq;
 
 
 namespace Trestlebridge.Models.Facilities
@@ -19,6 +20,18 @@ namespace Trestlebridge.Models.Facilities
             {
                 return _capacity;
             }
+        }
+
+        public void listAnimals()
+        {
+            Console.WriteLine($"({_grazingAnimalList.Count} animals out of {this._capacity})");
+            foreach (IGrazing grazingAnimal in this._grazingAnimalList)
+            {
+                // var animalTable = _grazingAnimalList.Aggregate(var map, var currentItem)
+
+                Console.WriteLine(grazingAnimal.GetType().Name);
+            }
+
         }
 
         public void AddAnimalResource(IGrazing animal)
