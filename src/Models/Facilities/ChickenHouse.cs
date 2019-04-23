@@ -43,7 +43,7 @@ namespace Trestlebridge.Models.Facilities
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Chicken house {shortId} has {this._chickenHouseList.Count} animals\n");
+            output.Append($"Chicken House {shortId} has {this._chickenHouseList.Count} chickens\n");
             this._chickenHouseList.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
