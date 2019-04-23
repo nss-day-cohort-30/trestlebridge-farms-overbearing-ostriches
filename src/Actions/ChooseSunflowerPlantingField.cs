@@ -4,29 +4,31 @@ using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
 using Trestlebridge.Models.Plants;
 
-namespace Trestlebridge.Actions {
+namespace Trestlebridge.Actions
+{
 
-public class ChooseSunflowerPlantingField {
-    public static void CollectInput(Farm farm)
-    // ISunflowerPlantFacility SunflowerField
+    public class ChooseSunflowerPlantingField
     {
-        Console.Clear();
-
-        for (int i =0; i < farm.PlantFacilityList.Count; i++)
-        {var field = farm.PlantFacilityList[i];
+        public static void CollectInput(Farm farm, Sunflower sunflower)
         {
-            Console.WriteLine($"{i + 1}. {field.GetType().Name} ");
-        }
-        }
-        Console.WriteLine();
+            // Console.Clear();
 
-        Console.WriteLine($"Plant the seed where?");
+            for (int i = 0; i < farm.PlantFacilityList.Count; i++)
+            {
+                var field = farm.PlantFacilityList[i];
+                {
+                    Console.WriteLine($"{i + 1}. {field.GetType().Name} ");
+                }
+            }
+            Console.WriteLine();
 
-        Console.WriteLine("> ");
-        int choice = Int32.Parse(Console.ReadLine());
+            Console.WriteLine($"Plant the seed where?");
 
-        choice = choice - 1;
-        farm.PlantFacilityList[choice].AddPlantResource(SunflowerField);
+            Console.WriteLine("> ");
+            int choice = Int32.Parse(Console.ReadLine());
+
+            choice = choice - 1;
+            farm.PlantFacilityList[choice].AddPlantResource(sunflower);
         }
     }
 }

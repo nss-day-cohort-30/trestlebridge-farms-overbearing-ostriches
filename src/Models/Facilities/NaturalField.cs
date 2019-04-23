@@ -3,6 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models.Classes;
+using Trestlebridge.Models.Plants;
 
 
 namespace Trestlebridge.Models.Facilities
@@ -32,6 +33,14 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
+        public void AddPlantResource(Sunflower sunflower)
+        {
+            if (_naturalFieldFlowerList.Count < _capacity)
+            {
+                _naturalFieldFlowerList.Add(sunflower);
+            }
+        }
+
         public void AddPlantResource(List<INaturalFieldFlower> flowers)  // TODO: Take out this method for boilerplate
         {
             if (_naturalFieldFlowerList.Count + flowers.Count <= _capacity)
@@ -45,7 +54,7 @@ namespace Trestlebridge.Models.Facilities
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Natural field {shortId} has {this._naturalFieldFlowerList.Count} animals\n");
+            output.Append($"Natural field {shortId} has {this._naturalFieldFlowerList.Count} plants\n");
             this._naturalFieldFlowerList.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();

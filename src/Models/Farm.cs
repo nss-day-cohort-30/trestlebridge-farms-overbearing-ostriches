@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models.Facilities;
-using Trestlebridge.Models.Plants;
 
 namespace Trestlebridge.Models
 {
@@ -19,18 +18,12 @@ namespace Trestlebridge.Models
 
         public List<NaturalField> NaturalFieldList { get; } = new List<NaturalField>();
 
-<<<<<<< HEAD
-        public List<IFacility> FacilityWithSpace { get; set; } = new List<IFacility>();
-=======
-        public List<ISunflowerPlantFacility> PlantFacilityList {get;} = new List<ISunflowerPlantFacility>();
-
-        
->>>>>>> 51e6761e52e8b6e7eb1458ae4a683acd83fb17db
+        public List<ISunflowerPlantFacility> PlantFacilityList { get; set; } = new List<ISunflowerPlantFacility>();
 
         /*
-    This method must specify the correct product interface of the
-    resource being purchased.
- */
+This method must specify the correct product interface of the
+resource being purchased.
+*/
         public void PurchaseResource<T>(IResource resource, int index)
         {
             Console.WriteLine(typeof(T).ToString());
@@ -71,12 +64,6 @@ namespace Trestlebridge.Models
             NaturalFieldList.Add(naturalField);
             FacilityList.Add(naturalField);
             PlantFacilityList.Add(naturalField);
-        }
-
-        public void AddSunflowerField(ISunflowerPlantFacility sunflowerField) 
-        {
-            PlantFacilityList.Add(sunflowerField);
-            PlantFacilityList.Add(sunflowerField);
         }
 
         public override string ToString()
