@@ -13,9 +13,9 @@ namespace Trestlebridge.Actions
         {
             Console.Clear();
 
-            for (int i = 0; i < farm.DuckHouseList.Count; i++)
+            for (int i = 0; i < farm.ChickenHouseList.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. Grazing Field");
+                Console.WriteLine($"{i + 1}. Chicken House");
             }
 
             Console.WriteLine();
