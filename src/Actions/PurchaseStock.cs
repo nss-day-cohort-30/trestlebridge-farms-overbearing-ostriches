@@ -49,6 +49,10 @@ namespace Trestlebridge.Actions
                     ChooseDuckHouse.CollectInput(farm, new Duck());
                     break;
                 default:
+                        Console.WriteLine(@"
+                **** That is not a valid Animal Choice ****
+            ****     Press Enter To Return to Main Menu      ****");
+                    Console.ReadLine();
                     break;
             }
         }
