@@ -4,7 +4,7 @@ using Trestlebridge.Models.Classes;
 
 namespace Trestlebridge.Models.Plants
 {
-    public class Sunflower : Plant, IResource, ISeedProducing, ICompostProducing, IPlowedFieldFlower, INaturalFieldFlower
+    public class Sunflower : Plant, IResource, ISeedProducing, ICompostProducing, IPlowedFieldFlower, INaturalFieldFlower, ISunflowerPlantFacility
     {
         private int _seedsProduced = 650;
         public string Type { get; } = "Sunflower";
@@ -20,7 +20,7 @@ namespace Trestlebridge.Models.Plants
         }
 
         public override string ToString () {
-            return $"Sunflower!";
+            return $"Look a Sunflower!";
         }
     }
 }
