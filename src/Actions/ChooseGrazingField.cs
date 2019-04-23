@@ -29,7 +29,7 @@ namespace Trestlebridge.Actions
             Console.WriteLine();
 
             // How can I output the type of animal chosen here?
-            Console.WriteLine($"Place the {animal.GetType().Name} where?");
+            Console.WriteLine($"Place the {animal.GetType().Name.ToLower()} where?");
 
             Console.Write("> ");
             int choice = Int32.Parse(Console.ReadLine());
@@ -38,16 +38,15 @@ namespace Trestlebridge.Actions
             //equal the index position of the field
             choice = choice - 1;
 
-
-
             farm.GrazingFieldList[choice].AddAnimalResource(animal);
+            /*
+                Couldn't get this to work. Can you?
+                Stretch goal. Only if the app is fully functional.
+             */
+            // farm.PurchaseResource<IGrazing>(animal, choice);
 
         }
-        /*
-            Couldn't get this to work. Can you?
-            Stretch goal. Only if the app is fully functional.
-         */
-        // farm.PurchaseResource<IGrazing>(animal, choice);
+
 
     }
 }

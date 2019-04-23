@@ -10,6 +10,7 @@ namespace Trestlebridge.Models.Facilities
     public class DuckHouse : IAnimalFacility<Duck>, IFacility
     {
         private int _capacity = 12;
+
         private Guid _id = Guid.NewGuid();
 
         private List<Duck> _duckHouseList = new List<Duck>();
@@ -24,7 +25,14 @@ namespace Trestlebridge.Models.Facilities
 
         public void AddAnimalResource(Duck animal)
         {
-            if (_duckHouseList.Count < _capacity)
+            if (_duckHouseList.Count >= _capacity)
+            {
+                Console.WriteLine(@"
+        **** That facililty is not large enough ****
+        ****     Please choose another one      ****");
+                Console.ReadLine();
+            }
+            else if (_duckHouseList.Count < _capacity)
             {
                 _duckHouseList.Add(animal);
             }
@@ -32,6 +40,7 @@ namespace Trestlebridge.Models.Facilities
 
         public void AddAnimalResource(List<Duck> animals)  // TODO: Take out this method for boilerplate
         {
+
             if (_duckHouseList.Count + animals.Count <= _capacity)
             {
                 _duckHouseList.AddRange(animals);
