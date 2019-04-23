@@ -7,9 +7,10 @@ using Trestlebridge.Models.Animals;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class ChickenHouse : IAnimalFacility<Chicken>
+    public class ChickenHouse : IAnimalFacility<Chicken>, IFacility
     {
         private int _capacity = 15;
+
         private Guid _id = Guid.NewGuid();
 
         private List<Chicken> _chickenList = new List<Chicken>();
@@ -24,7 +25,14 @@ namespace Trestlebridge.Models.Facilities
 
         public void AddAnimalResource(Chicken animal)
         {
-            if (_chickenList.Count < _capacity)
+            if (_chickenList.Count >= _capacity)
+            {
+                Console.WriteLine(@"
+        **** That facililty is not large enough ****
+        ****     Please choose another one      ****");
+                Console.ReadLine();
+            }
+            else if (_chickenList.Count < _capacity)
             {
                 _chickenList.Add(animal);
             }
