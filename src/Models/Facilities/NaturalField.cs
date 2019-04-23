@@ -2,16 +2,19 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
+using Trestlebridge.Models.Classes;
 
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class NaturalField : IPlantFacility<INaturalFieldFlower>, IFacility
+    public class NaturalField : IPlantFacility<INaturalFieldFlower>, IFacility, ISunflowerPlantFacility
     {
         private int _capacity = 10;
         private Guid _id = Guid.NewGuid();
 
         private List<INaturalFieldFlower> _naturalFieldFlowerList = new List<INaturalFieldFlower>();
+
+        public List<Plant> plantList = new List<Plant>();
 
         public double Capacity
         {

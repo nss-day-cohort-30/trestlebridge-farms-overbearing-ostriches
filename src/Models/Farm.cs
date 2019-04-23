@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models.Facilities;
+using Trestlebridge.Models.Plants;
 
 namespace Trestlebridge.Models
 {
@@ -18,7 +19,13 @@ namespace Trestlebridge.Models
 
         public List<NaturalField> NaturalFieldList { get; } = new List<NaturalField>();
 
+<<<<<<< HEAD
         public List<IFacility> FacilityWithSpace { get; set; } = new List<IFacility>();
+=======
+        public List<ISunflowerPlantFacility> PlantFacilityList {get;} = new List<ISunflowerPlantFacility>();
+
+        
+>>>>>>> 51e6761e52e8b6e7eb1458ae4a683acd83fb17db
 
         /*
     This method must specify the correct product interface of the
@@ -46,6 +53,7 @@ namespace Trestlebridge.Models
         {
             PlowedFieldList.Add(field);
             FacilityList.Add(field);
+            PlantFacilityList.Add(field);
         }
         public void AddDuckHouse(DuckHouse duckHouse)
         {
@@ -62,6 +70,13 @@ namespace Trestlebridge.Models
         {
             NaturalFieldList.Add(naturalField);
             FacilityList.Add(naturalField);
+            PlantFacilityList.Add(naturalField);
+        }
+
+        public void AddSunflowerField(ISunflowerPlantFacility sunflowerField) 
+        {
+            PlantFacilityList.Add(sunflowerField);
+            PlantFacilityList.Add(sunflowerField);
         }
 
         public override string ToString()
