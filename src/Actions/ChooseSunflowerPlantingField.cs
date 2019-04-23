@@ -7,7 +7,8 @@ using Trestlebridge.Models.Plants;
 namespace Trestlebridge.Actions {
 
 public class ChooseSunflowerPlantingField {
-    public static void CollectInput(Farm farm, ISunflowerPlantFacility SunflowerField)
+    public static void CollectInput(Farm farm)
+    // ISunflowerPlantFacility SunflowerField
     {
         Console.Clear();
 
