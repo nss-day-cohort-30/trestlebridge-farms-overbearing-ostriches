@@ -18,10 +18,12 @@ namespace Trestlebridge.Models
 
         public List<NaturalField> NaturalFieldList { get; } = new List<NaturalField>();
 
+        public List<ISunflowerPlantFacility> PlantFacilityList { get; set; } = new List<ISunflowerPlantFacility>();
+
         /*
-            This method must specify the correct product interface of the
-            resource being purchased.
-         */
+This method must specify the correct product interface of the
+resource being purchased.
+*/
         public void PurchaseResource<T>(IResource resource, int index)
         {
             Console.WriteLine(typeof(T).ToString());
@@ -44,6 +46,7 @@ namespace Trestlebridge.Models
         {
             PlowedFieldList.Add(field);
             FacilityList.Add(field);
+            PlantFacilityList.Add(field);
         }
         public void AddDuckHouse(DuckHouse duckHouse)
         {
@@ -60,13 +63,14 @@ namespace Trestlebridge.Models
         {
             NaturalFieldList.Add(naturalField);
             FacilityList.Add(naturalField);
+            PlantFacilityList.Add(naturalField);
         }
 
         public override string ToString()
         {
             StringBuilder report = new StringBuilder();
 
-            FacilityList.ForEach(gf => report.Append(gf));
+            FacilityList.ForEach(facility => report.Append(facility));
 
             return report.ToString();
         }
