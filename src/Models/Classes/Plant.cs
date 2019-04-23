@@ -1,5 +1,8 @@
-namespace Trestlebridge.Models.Classes {
-    public class Plant {
+namespace Trestlebridge.Models.Classes
+{
+    public class Plant
+    {
+
 
     }
 }

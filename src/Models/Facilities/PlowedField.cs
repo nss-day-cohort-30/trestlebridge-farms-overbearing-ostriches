@@ -2,16 +2,20 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
+using Trestlebridge.Models.Classes;
+using Trestlebridge.Models.Plants;
 
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class PlowedField : IPlantFacility<IPlowedFieldFlower>, IFacility
+    public class PlowedField : IPlantFacility<IPlowedFieldFlower>, IFacility, ISunflowerPlantFacility
     {
         private int _capacity = 13;
         private Guid _id = Guid.NewGuid();
 
         private List<IPlowedFieldFlower> _plowedFieldFlowerList = new List<IPlowedFieldFlower>();
+
+        public List<Plant> plantList = new List<Plant>();
 
         public double Capacity
         {
@@ -22,6 +26,14 @@ namespace Trestlebridge.Models.Facilities
         }
 
         public void AddPlantResource(IPlowedFieldFlower plant)
+        {
+            if (_plowedFieldFlowerList.Count < _capacity)
+            {
+                _plowedFieldFlowerList.Add(plant);
+            }
+        }
+
+        public void AddPlantResource(Sunflower plant)
         {
             if (_plowedFieldFlowerList.Count < _capacity)
             {
