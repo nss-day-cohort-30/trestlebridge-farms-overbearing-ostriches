@@ -12,7 +12,7 @@ namespace Trestlebridge.Models.Facilities
         private int _capacity = 12;
         private Guid _id = Guid.NewGuid();
 
-        private List<Duck> _duckList = new List<Duck>();
+        private List<Duck> _duckHouseList = new List<Duck>();
 
         public double Capacity
         {
@@ -24,17 +24,17 @@ namespace Trestlebridge.Models.Facilities
 
         public void AddAnimalResource(Duck animal)
         {
-            if (_duckList.Count < _capacity)
+            if (_duckHouseList.Count < _capacity)
             {
-                _duckList.Add(animal);
+                _duckHouseList.Add(animal);
             }
         }
 
         public void AddAnimalResource(List<Duck> animals)  // TODO: Take out this method for boilerplate
         {
-            if (_duckList.Count + animals.Count <= _capacity)
+            if (_duckHouseList.Count + animals.Count <= _capacity)
             {
-                _duckList.AddRange(animals);
+                _duckHouseList.AddRange(animals);
             }
         }
 
@@ -43,8 +43,8 @@ namespace Trestlebridge.Models.Facilities
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Duck House {shortId} has {this._duckList.Count} ducks\n");
-            this._duckList.ForEach(a => output.Append($"   {a}\n"));
+            output.Append($"Duck House {shortId} has {this._duckHouseList.Count} ducks\n");
+            this._duckHouseList.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
         }
