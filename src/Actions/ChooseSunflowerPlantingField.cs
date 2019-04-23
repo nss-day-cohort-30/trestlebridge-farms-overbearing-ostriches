@@ -25,7 +25,7 @@ public class ChooseSunflowerPlantingField {
         int choice = Int32.Parse(Console.ReadLine());
 
         choice = choice - 1;
-        // farm.PlantFacilityList[choice].AddPlantResource(SunflowerField);
+        farm.PlantFacilityList[choice].AddPlantResource(SunflowerField);
         }
     }
 }

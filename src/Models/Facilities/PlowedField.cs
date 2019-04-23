@@ -2,6 +2,7 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
+using Trestlebridge.Models.Classes;
 
 
 namespace Trestlebridge.Models.Facilities
@@ -12,6 +13,8 @@ namespace Trestlebridge.Models.Facilities
         private Guid _id = Guid.NewGuid();
 
         private List<IPlowedFieldFlower> _plowedFieldFlowerList = new List<IPlowedFieldFlower>();
+
+        public List<Plant> plantList = new List<Plant>();
 
         public double Capacity
         {
