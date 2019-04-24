@@ -6,7 +6,6 @@ using Trestlebridge.Models.Animals;
 using System.Collections;
 using System.Collections.Generic;
 using Trestlebridge.Models.Facilities;
-using Trestlebridge.Models.Classes;
 
 namespace Trestlebridge.Actions
 {
