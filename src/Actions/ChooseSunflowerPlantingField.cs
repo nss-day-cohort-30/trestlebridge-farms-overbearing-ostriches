@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
 using Trestlebridge.Models.Plants;
+using Trestlebridge.Classes;
 
 namespace Trestlebridge.Actions
 {
 
     public class ChooseSunflowerPlantingField
     {
-        public static void CollectInput(Farm farm, List<IPlowedFieldFlower> sunflowerList)
+        public static void CollectInput(Farm farm, List<Plant> sunflowerList)
         {
             Console.Clear();
 
@@ -32,7 +33,9 @@ namespace Trestlebridge.Actions
 
 
             choice = choice - 1;
-            farm.PlantFacilityList[choice].AddPlantResource(sunflowerList);
+            dynamic chosenField = farm.PlantFacilityList[choice];
+            
+            chosenField.AddPlantResource(sunflowerList);
         }
     }
 }

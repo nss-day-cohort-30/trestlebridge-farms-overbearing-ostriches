@@ -18,10 +18,10 @@ namespace Trestlebridge.Actions
 
             Console.Write("> ");
 
+            //creates a list of seeds to be added to the fields
 
             List<IPlowedFieldFlower> sunflowerList = new List<IPlowedFieldFlower>();
             int choice = Int32.Parse(Console.ReadLine());
-           
 
             for (int i = 0; i < choice; i++)
             {
