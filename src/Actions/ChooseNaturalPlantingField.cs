@@ -12,7 +12,7 @@ namespace Trestlebridge.Actions
     {
         public static void CollectInput(Farm farm, INaturalFieldFlower naturalFlower)
         {
-            // Console.Clear();
+            Console.Clear();
 
             for (int i = 0; i < farm.NaturalFieldList.Count; i++)
             {
