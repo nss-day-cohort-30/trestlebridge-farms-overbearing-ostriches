@@ -3,6 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
 using System.Linq;
+using System.Collections.Concurrent;
 
 namespace Trestlebridge.Models.Facilities
 {
@@ -24,14 +25,16 @@ namespace Trestlebridge.Models.Facilities
         {
             Console.WriteLine($"({_grazingAnimalList.Count} animals out of {this._capacity})");
             // List<IGrazing> list = new List<IGrazing>();
-            Dictionary<IGrazing, Int32> animalReport = new Dictionary<IGrazing, Int32>();
+            Dictionary<string, Int32> animalReport = new Dictionary<string, Int32>();
             foreach (IGrazing grazingAnimal in this._grazingAnimalList)
             {
-                var type = grazingAnimal.GetType();
-                // if (animalReport.ContainsKey(ty();))
-
-                Console.WriteLine(grazingAnimal.GetType().Name);
+                string type = grazingAnimal.GetType().Name.ToString();
+                int count;
+                animalReport.TryGetValue(type, out count);
+                animalReport[type] = count + 1;
+                // Console.WriteLine(grazingAnimal.GetType().Name);
             }
+            Console.WriteLine(animalReport);
 
         }
 

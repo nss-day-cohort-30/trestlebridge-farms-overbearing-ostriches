@@ -11,7 +11,7 @@ namespace Trestlebridge.Actions
     {
         public static void CollectInput(Farm farm, IPlowedFieldFlower PlowedFieldFlower)
         {
-            // Console.Clear();
+            Console.Clear();
 
             for (int i = 0; i < farm.PlowedFieldList.Count; i++)
             {
