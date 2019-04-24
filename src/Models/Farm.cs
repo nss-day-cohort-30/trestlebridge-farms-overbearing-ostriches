@@ -18,7 +18,7 @@ namespace Trestlebridge.Models
 
         public List<NaturalField> NaturalFieldList { get; } = new List<NaturalField>();
 
-        public List<ISunflowerPlantFacility> PlantFacilityList { get; set; } = new List<ISunflowerPlantFacility>();
+        public List<IPlowedFieldFlower> PlantFacilityList { get; set; } = new List<IPlowedFieldFlower>();
 
         /*
 This method must specify the correct product interface of the

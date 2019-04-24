@@ -3,7 +3,6 @@ using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models.Classes;
-using Trestlebridge.Models.Plants;
 
 
 namespace Trestlebridge.Models.Facilities
@@ -26,14 +25,6 @@ namespace Trestlebridge.Models.Facilities
         }
 
         public void AddPlantResource(IPlowedFieldFlower plant)
-        {
-            if (_plowedFieldFlowerList.Count < _capacity)
-            {
-                _plowedFieldFlowerList.Add(plant);
-            }
-        }
-
-        public void AddPlantResource(Sunflower plant)
         {
             if (_plowedFieldFlowerList.Count < _capacity)
             {

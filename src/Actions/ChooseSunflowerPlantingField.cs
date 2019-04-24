@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Collections.Generic;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
 using Trestlebridge.Models.Plants;
@@ -9,7 +10,7 @@ namespace Trestlebridge.Actions
 
     public class ChooseSunflowerPlantingField
     {
-        public static void CollectInput(Farm farm, Sunflower sunflower)
+        public static void CollectInput(Farm farm, List<IPlowedFieldFlower> sunflowerList)
         {
             Console.Clear();
 
@@ -24,11 +25,13 @@ namespace Trestlebridge.Actions
 
             Console.WriteLine($"Plant the seed where?");
 
-            Console.WriteLine("> ");
+            Console.Write("> ");
             int choice = Int32.Parse(Console.ReadLine());
 
+
+
             choice = choice - 1;
-            farm.PlantFacilityList[choice].AddPlantResource(sunflower);
+            farm.PlantFacilityList[choice].AddPlantResource(sunflowerList);
         }
     }
 }
