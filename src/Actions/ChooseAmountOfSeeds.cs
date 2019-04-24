@@ -4,12 +4,13 @@ using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
 using Trestlebridge.Models.Plants;
 using Trestlebridge.Models.Facilities;
+using Trestlebridge.Classes;
 
 namespace Trestlebridge.Actions
 {
     public class ChooseAmountOfSeeds
     {
-        public static void CollectInput(Farm farm)
+        public static void CollectInput(Farm farm, string chosenType)
         {
             Console.Clear();
 
@@ -20,15 +21,18 @@ namespace Trestlebridge.Actions
 
             //creates a list of seeds to be added to the fields
 
-            List<IPlowedFieldFlower> sunflowerList = new List<IPlowedFieldFlower>();
-            int choice = Int32.Parse(Console.ReadLine());
-
-            for (int i = 0; i < choice; i++)
+            if (chosenType == "Sunflower")
             {
-                 sunflowerList.Add(new Sunflower());
-            }
 
-            ChooseSunflowerPlantingField.CollectInput(farm, sunflowerList);
+                List<Sunflower> sunflowerList = new List<Sunflower>();
+                int choice = Int32.Parse(Console.ReadLine());
+                for (int i = 0; i < choice; i++)
+                {
+                    sunflowerList.Add(new Sunflower());
+                }
+
+                ChooseSunflowerPlantingField.CollectInput(farm, sunflowerList);
+            }
         }
     }
 }

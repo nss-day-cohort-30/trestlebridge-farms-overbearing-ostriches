@@ -6,6 +6,5 @@ namespace Trestlebridge.Interfaces
 {
     public interface ISunflowerPlantFacility
     {
-        void AddPlantResource(Sunflower flower);
     }
 }
