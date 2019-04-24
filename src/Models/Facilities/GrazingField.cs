@@ -3,11 +3,11 @@ using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
 using System.Linq;
-using System.Collections.Concurrent;
+using Trestlebridge.Classes;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class GrazingField : IAnimalFacility<IGrazing>, IFacility
+    public class GrazingField : Facility<IGrazing>, IAnimalFacility<IGrazing>, IFacility
     {
         private int _capacity = 5;
         private Guid _id = Guid.NewGuid();
@@ -21,22 +21,32 @@ namespace Trestlebridge.Models.Facilities
                 return _capacity;
             }
         }
-        public void listAnimals()
-        {
-            Console.WriteLine($"({_grazingAnimalList.Count} animals out of {this._capacity})");
-            // List<IGrazing> list = new List<IGrazing>();
-            Dictionary<string, Int32> animalReport = new Dictionary<string, Int32>();
-            foreach (IGrazing grazingAnimal in this._grazingAnimalList)
-            {
-                string type = grazingAnimal.GetType().Name.ToString();
-                int count;
-                animalReport.TryGetValue(type, out count);
-                animalReport[type] = count + 1;
-                // Console.WriteLine(grazingAnimal.GetType().Name);
-            }
-            Console.WriteLine(animalReport);
+        // public string listAnimals()
+        // {
+        //     Console.WriteLine($"({_grazingAnimalList.Count} animals out of {this._capacity})");
+        //     // List<IGrazing> list = new List<IGrazing>();
+        //     Dictionary<string, Int32> animalReport = new Dictionary<string, Int32>();
+        //     foreach (IGrazing grazingAnimal in this._grazingAnimalList)
+        //     {
+        //         string type = grazingAnimal.GetType().Name.ToString();
+        //         int count;
+        //         animalReport.TryGetValue(type, out count);
+        //         animalReport[type] = count + 1;
 
-        }
+        //         // Console.WriteLine(grazingAnimal.GetType().Name);
+        //     }
+        //     StringBuilder sb = new StringBuilder();
+        //     foreach (var kvp in animalReport)
+        //     {
+        //         sb.Append(kvp.Value);
+        //         sb.Append(" ");
+        //         sb.Append(kvp.Key.ToLower());
+        //         sb.Append(", ");
+        //     }
+
+        //     Console.WriteLine(sb.ToString());
+        //     return (sb.ToString());
+        // }
 
         public void AddAnimalResource(IGrazing animal)
         {
@@ -50,6 +60,7 @@ namespace Trestlebridge.Models.Facilities
             else if (_grazingAnimalList.Count < _capacity)
             {
                 _grazingAnimalList.Add(animal);
+                ResourceList.Add(animal);
             }
         }
 

@@ -2,13 +2,13 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
-using Trestlebridge.Models.Classes;
+using Trestlebridge.Classes;
 using Trestlebridge.Models.Plants;
 
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class NaturalField : IPlantFacility<INaturalFieldFlower>, IFacility, ISunflowerPlantFacility
+    public class NaturalField : Facility<INaturalFieldFlower>, IPlantFacility<INaturalFieldFlower>, IFacility, ISunflowerPlantFacility
     {
         private int _capacity = 10;
         private Guid _id = Guid.NewGuid();
@@ -30,6 +30,7 @@ namespace Trestlebridge.Models.Facilities
             if (_naturalFieldFlowerList.Count < _capacity)
             {
                 _naturalFieldFlowerList.Add(flower);
+                ResourceList.Add(flower);
             }
         }
 
@@ -38,6 +39,7 @@ namespace Trestlebridge.Models.Facilities
             if (_naturalFieldFlowerList.Count < _capacity)
             {
                 _naturalFieldFlowerList.Add(sunflower);
+                ResourceList.Add(sunflower);
             }
         }
 
