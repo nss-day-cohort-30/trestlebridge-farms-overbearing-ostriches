@@ -24,7 +24,7 @@ namespace Trestlebridge.Actions
                     if (grazingField.checkCapacity(farm)== true)
                     {
                         Console.WriteLine($"{i + 1}. Grazing Field");
-                        grazingField.listAnimals();
+                        grazingField.listResources();
                     }
                 Hashtable ht = new Hashtable();
                 }
