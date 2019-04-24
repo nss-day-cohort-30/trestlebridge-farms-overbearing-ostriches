@@ -19,7 +19,8 @@ namespace Trestlebridge.Actions
 
             Console.Write("> ");
             string choice = Console.ReadLine();
-
+        try
+        {
             switch (Int32.Parse(choice))
             {
                 case 1:
@@ -33,7 +34,17 @@ namespace Trestlebridge.Actions
                     break;
                 default:
                     break;
+
             }
+        }
+        catch(FormatException ex)
+        {
+            Console.WriteLine(@"
+                **** That is not a valid Seed Choice ****
+            ****     Press Enter To Return to Main Menu      ****");
+            Console.ReadLine();
+        }
+
         }
     }
 }
