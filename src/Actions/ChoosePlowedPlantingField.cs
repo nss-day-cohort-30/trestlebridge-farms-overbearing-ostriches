@@ -15,8 +15,11 @@ namespace Trestlebridge.Actions
 
             for (int i = 0; i < farm.PlowedFieldList.Count; i++)
             {
+                var plowedField = farm.PlowedFieldList[i];
                 Console.WriteLine($"{i + 1}. Plowed Field");
+                plowedField.listResources();
             }
+
             Console.WriteLine();
 
             Console.WriteLine($"Plant the seed where?");

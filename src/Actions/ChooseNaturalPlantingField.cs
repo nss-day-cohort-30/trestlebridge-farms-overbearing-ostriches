@@ -3,7 +3,6 @@ using System.Linq;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
 using Trestlebridge.Models.Plants;
-using Trestlebridge.Models.Classes;
 
 namespace Trestlebridge.Actions
 {
@@ -16,10 +15,10 @@ namespace Trestlebridge.Actions
 
             for (int i = 0; i < farm.NaturalFieldList.Count; i++)
             {
+                var naturalField = farm.NaturalFieldList[i];
                 Console.WriteLine($"{i + 1}. Natural Field");
+                naturalField.listResources();
             }
-
-            Console.WriteLine();
 
             Console.WriteLine($"Plant the seed where?");
 
