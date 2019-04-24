@@ -24,6 +24,8 @@ namespace Trestlebridge.Actions
 
             Console.Write("> ");
             string choice = Console.ReadLine();
+        try
+        {
 
             switch (Int32.Parse(choice))
             {
@@ -48,13 +50,17 @@ namespace Trestlebridge.Actions
                 case 7:
                     ChooseDuckHouse.CollectInput(farm, new Duck());
                     break;
-                default:
-                        Console.WriteLine(@"
+                // default:
+            }
+        }
+        catch(FormatException ex)
+        {
+                    Console.WriteLine(@"
                 **** That is not a valid Animal Choice ****
             ****     Press Enter To Return to Main Menu      ****");
                     Console.ReadLine();
-                    break;
-            }
+        }
+
         }
     }
 }
