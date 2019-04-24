@@ -20,6 +20,10 @@ namespace Trestlebridge.Actions
 
             Console.Write("> ");
             string input = Console.ReadLine();
+        //This try catch was added due to the fact that if you don't select a facility
+        //and just hit enter/return the program would crash
+        try
+        {
 
             switch (Int32.Parse(input))
             {
@@ -38,8 +42,17 @@ namespace Trestlebridge.Actions
                 case 5:
                     farm.AddDuckHouse(new DuckHouse());
                     break;
-                    // default:
             }
+                    // default:
+        }
+        catch (FormatException ex)
+        {
+            Console.WriteLine(@"
+                **** That is not a valid Facility Choice ****
+            ****     Press Enter To Return to Main Menu      ****");
+                    Console.ReadLine();
+        }
+
         }
     }
 }
