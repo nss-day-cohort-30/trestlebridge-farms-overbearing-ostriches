@@ -3,11 +3,12 @@ using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models.Animals;
+using Trestlebridge.Classes;
 
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class ChickenHouse : IAnimalFacility<Chicken>, IFacility
+    public class ChickenHouse : Facility<Chicken>, IAnimalFacility<Chicken>, IFacility
     {
         private int _capacity = 15;
 
@@ -35,6 +36,7 @@ namespace Trestlebridge.Models.Facilities
             else if (_chickenList.Count < _capacity)
             {
                 _chickenList.Add(animal);
+                ResourceList.Add(animal);
             }
         }
 

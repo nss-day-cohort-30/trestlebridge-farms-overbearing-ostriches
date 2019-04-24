@@ -1,6 +1,6 @@
 using System;
 
-namespace Trestlebridge.Models.Classes
+namespace Trestlebridge.Classes
 {
     public class Animal
     {

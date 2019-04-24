@@ -15,13 +15,13 @@ namespace Trestlebridge.Actions
 
             for (int i = 0; i < farm.DuckHouseList.Count; i++)
             {
+                var duckHouse = farm.DuckHouseList[i];
                 Console.WriteLine($"{i + 1}. Duck House");
+                duckHouse.listResources();
             }
 
-            Console.WriteLine();
-
             // How can I output the type of animal chosen here?
-            Console.WriteLine($"Place the animal where?");
+            Console.WriteLine($"Place the duck where?");
 
             Console.Write("> ");
             int choice = Int32.Parse(Console.ReadLine());

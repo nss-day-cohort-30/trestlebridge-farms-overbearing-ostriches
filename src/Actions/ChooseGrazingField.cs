@@ -6,7 +6,6 @@ using Trestlebridge.Models.Animals;
 using System.Collections;
 using System.Collections.Generic;
 using Trestlebridge.Models.Facilities;
-using Trestlebridge.Models.Classes;
 
 namespace Trestlebridge.Actions
 {
@@ -21,9 +20,8 @@ namespace Trestlebridge.Actions
                 var grazingField = farm.GrazingFieldList[i];
                 {
                     Console.WriteLine($"{i + 1}. Grazing Field");
-                    grazingField.listAnimals();
+                    grazingField.listResources();
                 }
-                Hashtable ht = new Hashtable();
             }
 
             Console.WriteLine();
