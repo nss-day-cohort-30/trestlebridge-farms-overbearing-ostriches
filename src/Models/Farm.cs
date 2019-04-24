@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models.Facilities;
+using Trestlebridge.Classes;
 
 namespace Trestlebridge.Models
 {
@@ -19,6 +20,8 @@ namespace Trestlebridge.Models
         public List<NaturalField> NaturalFieldList { get; } = new List<NaturalField>();
 
         public List<ISunflowerPlantFacility> PlantFacilityList { get; set; } = new List<ISunflowerPlantFacility>();
+
+        public List<Plant> PlantList { get; set; } = new List<Plant>();
 
         /*
 This method must specify the correct product interface of the
