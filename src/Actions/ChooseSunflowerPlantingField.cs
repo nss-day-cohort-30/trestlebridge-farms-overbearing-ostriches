@@ -15,10 +15,10 @@ namespace Trestlebridge.Actions
 
             for (int i = 0; i < farm.PlantFacilityList.Count; i++)
             {
-                var sunflowerField = farm.PlantFacilityList[i];
+                dynamic sunflowerField = farm.PlantFacilityList[i];
                 {
                     Console.WriteLine($"{i + 1}. {sunflowerField.GetType().Name} ");
-                    // sunflowerField.listResources();
+                    sunflowerField.listResources();
                 }
             }
             Console.WriteLine();
