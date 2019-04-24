@@ -15,15 +15,20 @@ namespace Trestlebridge.Actions
         public static void CollectInput(Farm farm, IGrazing animal)
         {
             Console.Clear();
-
+            //For Loop, loops through entire GrazingField List
             for (int i = 0; i < farm.GrazingFieldList.Count; i++)
             {
-                var grazingField = farm.GrazingFieldList[i];
-                {
-                    Console.WriteLine($"{i + 1}. Grazing Field");
-                    grazingField.listAnimals();
-                }
+                {   //Loops through ever individual field in GrazingFieldList
+                    //Individual fields are stored in the variable grazingField
+                    var grazingField = farm.GrazingFieldList[i];
+                    //If the logic of checkCapacity boolean method is true the field is shown
+                    if (grazingField.checkCapacity(farm)== true)
+                    {
+                        Console.WriteLine($"{i + 1}. Grazing Field");
+                        grazingField.listAnimals();
+                    }
                 Hashtable ht = new Hashtable();
+                }
             }
 
             Console.WriteLine();
