@@ -32,6 +32,24 @@ namespace Trestlebridge.Actions
                 }
 
                 ChooseSunflowerPlantingField.CollectInput(farm, sunflowerList);
+            } else if (chosenType == "Wildflower")
+            {
+                List<Wildflower> wildflowerList = new List<Wildflower>();
+                int choice = Int32.Parse(Console.ReadLine());
+                for (int i = 0; i < choice; i++)
+                {
+                    wildflowerList.Add(new Wildflower());
+                }
+                ChooseNaturalPlantingField.CollectInput(farm, wildflowerList);
+            } else if (chosenType == "Sesame")
+            {
+                List<Sesame> sesameSeedList = new List<Sesame>();
+                int choice = Int32.Parse(Console.ReadLine());
+                for (int i = 0; i < choice; i++)
+                {
+                    sesameSeedList.Add(new Sesame());
+                }
+                ChoosePlowedPlantingField.CollectInput(farm, sesameSeedList);
             }
         }
     }
