@@ -34,6 +34,7 @@ namespace Trestlebridge.Actions
             int choice = Int32.Parse(Console.ReadLine());
 
             choice = choice - 1;
+
             dynamic chosenField = farm.PlantFacilityList[choice];
 
             if (chosenField is NaturalField)

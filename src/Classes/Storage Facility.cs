@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Trestlebridge.Classes
 {
-    public class Facility<T>
+    public class StorageFacility<T>
     {
 
         public List<T> ResourceList = new List<T>();
@@ -26,26 +26,17 @@ namespace Trestlebridge.Classes
             for (int i = 0; i < resourceReport.Count; i++)
             {
                 var kvp = resourceReport.ElementAt(i);
-                if (i == 1)
-                {
-                    sb.Append(", ");
-                }
                 sb.Append(kvp.Value);
                 sb.Append(" ");
                 sb.Append(kvp.Key.ToLower());
-                if (i >= 1)
+                if (i != resourceReport.Count - 1)
                 {
                     sb.Append(", ");
                 }
 
+
             }
-            // foreach (var kvp in resourceReport)
-            // {
-            //     sb.Append(kvp.Value);
-            //     sb.Append(" ");
-            //     sb.Append(kvp.Key.ToLower());
-            //     sb.Append(", ");
-            // }
+
 
             Console.WriteLine(sb.ToString());
             return (sb.ToString());

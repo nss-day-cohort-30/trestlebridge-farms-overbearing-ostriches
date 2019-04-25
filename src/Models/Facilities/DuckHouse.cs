@@ -8,7 +8,7 @@ using Trestlebridge.Classes;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class DuckHouse : Facility<Duck>, IAnimalFacility<Duck>, IFacility
+    public class DuckHouse : StorageFacility<Duck>, IAnimalFacility<Duck>, IFacility
     {
         private int _capacity = 12;
 
