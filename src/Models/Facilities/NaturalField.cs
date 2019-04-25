@@ -34,6 +34,14 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
+        public int checkCapacity(Farm farm)
+        {
+            if (this.Capacity > _naturalFieldFlowerList.Count)
+            {
+                return 10;
+            }
+        }
+
         public void AddPlantResource(Sunflower sunflower)
         {
             if (_naturalFieldFlowerList.Count < _capacity)
