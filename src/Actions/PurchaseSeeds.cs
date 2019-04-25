@@ -46,10 +46,10 @@ namespace Trestlebridge.Actions
                         ChooseAmountOfSeeds.CollectInput(farm, chosenType);
                         break;
                     case 2:
-                        ChooseNaturalPlantingField.CollectInput(farm, new Wildflower());
+                        ChooseAmountOfSeeds.CollectInput(farm, chosenType);
                         break;
                     case 3:
-                        ChoosePlowedPlantingField.CollectInput(farm, new Sesame());
+                        ChooseAmountOfSeeds.CollectInput(farm, chosenType);
                         break;
                     default:
                         break;
