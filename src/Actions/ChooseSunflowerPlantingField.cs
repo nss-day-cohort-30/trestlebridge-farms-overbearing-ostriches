@@ -11,7 +11,6 @@ using Trestlebridge.Models.Facilities;
 namespace Trestlebridge.Actions
 {
 
-
     public class ChooseSunflowerPlantingField
     {
         public static void CollectInput(Farm farm, List<Sunflower> sunflowers)
@@ -35,6 +34,7 @@ namespace Trestlebridge.Actions
             Console.WriteLine($"Plant the seed where?");
 
             choice = choice - 1;
+
             dynamic chosenField = farm.PlantFacilityList[choice];
 
             if (chosenField is NaturalField)
@@ -53,3 +53,4 @@ namespace Trestlebridge.Actions
         }
     }
 }
+
