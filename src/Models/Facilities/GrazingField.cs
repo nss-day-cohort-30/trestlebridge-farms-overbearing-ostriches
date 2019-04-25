@@ -48,6 +48,19 @@ namespace Trestlebridge.Models.Facilities
         //     return (sb.ToString());
         // }
 
+        public bool checkCapacity(Farm farm)
+        {
+            var grazingFieldList = farm.GrazingFieldList;
+            if(this.Capacity > _grazingAnimalList.Count)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public void AddAnimalResource(IGrazing animal)
         {
             if (_grazingAnimalList.Count >= _capacity)
