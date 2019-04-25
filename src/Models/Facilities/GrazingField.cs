@@ -7,7 +7,7 @@ using Trestlebridge.Classes;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class GrazingField : Facility<IGrazing>, IAnimalFacility<IGrazing>, IFacility
+    public class GrazingField : StorageFacility<IGrazing>, IAnimalFacility<IGrazing>, IFacility
     {
         private int _capacity = 5;
         private Guid _id = Guid.NewGuid();
@@ -51,7 +51,7 @@ namespace Trestlebridge.Models.Facilities
         public bool checkCapacity(Farm farm)
         {
             var grazingFieldList = farm.GrazingFieldList;
-            if(this.Capacity > _grazingAnimalList.Count)
+            if (this.Capacity > _grazingAnimalList.Count)
             {
                 return true;
             }

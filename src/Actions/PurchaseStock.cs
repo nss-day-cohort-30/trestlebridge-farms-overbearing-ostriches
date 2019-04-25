@@ -53,7 +53,14 @@ namespace Trestlebridge.Actions
                 // default:
             }
         }
-        catch(FormatException ex)
+        catch(FormatException ex )
+        {
+                    Console.WriteLine(@"
+                **** That is not a valid Animal Choice ****
+            ****     Press Enter To Return to Main Menu      ****");
+                    Console.ReadLine();
+        }
+        catch(ArgumentOutOfRangeException ex)
         {
                     Console.WriteLine(@"
                 **** That is not a valid Animal Choice ****
