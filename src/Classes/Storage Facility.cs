@@ -28,6 +28,10 @@ namespace Trestlebridge.Classes
                 sb.Append(kvp.Value);
                 sb.Append(" ");
                 sb.Append(kvp.Key.ToLower());
+                if (kvp.Key != "Sheep" & kvp.Value >= 2)
+                {
+                    sb.Append("s");
+                }
                 if (i != resourceReport.Count - 1)
                 {
                     sb.Append(", ");
