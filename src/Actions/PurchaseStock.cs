@@ -32,24 +32,6 @@ namespace Trestlebridge.Actions
                 case 1:
                     ChooseGrazingField.CollectInput(farm, new Cow());
                     break;
-                case 2:
-                    ChooseGrazingField.CollectInput(farm, new Ostrich());
-                    break;
-                case 3:
-                    ChooseGrazingField.CollectInput(farm, new Sheep());
-                    break;
-                case 4:
-                    ChooseGrazingField.CollectInput(farm, new Goat());
-                    break;
-                case 5:
-                    ChooseGrazingField.CollectInput(farm, new Pig());
-                    break;
-                case 6:
-                    ChooseChickenHouse.CollectInput(farm, new Chicken());
-                    break;
-                case 7:
-                    ChooseDuckHouse.CollectInput(farm, new Duck());
-                    break;
                 // default:
             }
         }
