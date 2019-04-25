@@ -10,6 +10,7 @@ namespace Trestlebridge.Models
     public class Farm
     {
         public List<IFacility> FacilityList { get; } = new List<IFacility>();
+
         public List<GrazingField> GrazingFieldList { get; } = new List<GrazingField>();
         public List<PlowedField> PlowedFieldList { get; } = new List<PlowedField>();
 
@@ -72,8 +73,15 @@ resource being purchased.
         public override string ToString()
         {
             StringBuilder report = new StringBuilder();
+            // call listResources method on objects in interface list 
+            for (int i = 0; i < FacilityList.Count; i++)
+            {
+                var facility = FacilityList[i];
+                dynamic facilityAsClassType = Convert.ChangeType(facility, facility.GetType());
+                Console.WriteLine($"{i + 1}. {facility.GetType().Name}");
+                facilityAsClassType.listResources();
 
-            FacilityList.ForEach(facility => report.Append(facility));
+            };
 
             return report.ToString();
         }
