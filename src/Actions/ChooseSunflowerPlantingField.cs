@@ -22,9 +22,9 @@ namespace Trestlebridge.Actions
             // sunflowerField may be Natural or Plowed Field
             {
                 dynamic sunflowerField = farm.PlantFacilityList[i];
-                if (sunflowers.Capacity <= farm.PlantFacilityList.Capacity)
-                 {
-                 }
+                // if (sunflowers.Capacity <= farm.PlantFacilityList.Capacity)
+                //  {
+                //  }
                 {
                     Console.WriteLine($"{i + 1}. {sunflowerField.GetType().Name} ");
                     sunflowerField.listResources();
