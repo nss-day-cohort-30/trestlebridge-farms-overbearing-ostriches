@@ -18,6 +18,10 @@ namespace Trestlebridge.Actions
             for (int i = 0; i < farm.PlowedFieldList.Count; i++)
             {
                  dynamic sesameSeedField = farm.PlantFacilityList[i];
+                 if (farm.PlowedFieldList.Capacity <= farm.PlowedFieldList.Capacity)
+                 {
+                 }
+                 else
                 {
                     Console.WriteLine($"{i + 1}. {sesameSeedField.GetType().Name} ");
                     sesameSeedField.listResources();
