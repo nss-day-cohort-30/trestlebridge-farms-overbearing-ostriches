@@ -19,37 +19,50 @@ namespace Trestlebridge.Actions
 
             Console.Write("> ");
             string choice = Console.ReadLine();
-        try
-        {
-            switch (Int32.Parse(choice))
+
+            string chosenType;
+            if (choice == "1")
             {
-<<<<<<< HEAD
-                case 1:
-                    ChooseAmountOfSeeds.CollectInput(farm);
-                    break;
-=======
-                // case 1:
-                //     ChooseSunflowerPlantingField.CollectInput(farm, new Sunflower());
-                //     break;
->>>>>>> master
-                case 2:
-                    ChooseNaturalPlantingField.CollectInput(farm, new Wildflower());
-                    break;
-                case 3:
-                    ChoosePlowedPlantingField.CollectInput(farm, new Sesame());
-                    break;
-                default:
-                    break;
+                chosenType = "Sunflower";
+            }
+            else if (choice == "2")
+            {
+                chosenType = "Wildflower";
+            }
+            else if (choice == "3")
+            {
+                chosenType = "Sesame";
+            }
+            else
+            {
+                chosenType = "";
 
             }
-        }
-        catch(FormatException ex)
-        {
-            Console.WriteLine(@"
+            try
+            {
+                switch (Int32.Parse(choice))
+                {
+                    case 1:
+                        ChooseAmountOfSeeds.CollectInput(farm, chosenType);
+                        break;
+                    case 2:
+                        ChooseNaturalPlantingField.CollectInput(farm, new Wildflower());
+                        break;
+                    case 3:
+                        ChoosePlowedPlantingField.CollectInput(farm, new Sesame());
+                        break;
+                    default:
+                        break;
+
+                }
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine(@"
                 **** That is not a valid Seed Choice ****
             ****     Press Enter To Return to Main Menu      ****");
-            Console.ReadLine();
-        }
+                Console.ReadLine();
+            }
 
         }
     }
