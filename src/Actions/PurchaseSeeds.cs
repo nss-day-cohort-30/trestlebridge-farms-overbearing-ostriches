@@ -35,6 +35,7 @@ namespace Trestlebridge.Actions
             }
             else
             {
+
                 chosenType = "";
             }
 
