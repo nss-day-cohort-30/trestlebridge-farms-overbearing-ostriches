@@ -1,9 +1,9 @@
-
 using System;
 using System.Linq;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
 using Trestlebridge.Models.Plants;
+using Trestlebridge.Classes;
 using System.Collections.Generic;
 using Trestlebridge.Models.Facilities;
 
@@ -30,11 +30,9 @@ namespace Trestlebridge.Actions
             }
             Console.WriteLine();
 
-            Console.WriteLine($"Plant the seed where?");
-
-            Console.WriteLine("> ");
+            Console.Write("> ");
             int choice = Int32.Parse(Console.ReadLine());
-
+            Console.WriteLine($"Plant the seed where?");
 
             choice = choice - 1;
             dynamic chosenField = farm.PlantFacilityList[choice];
