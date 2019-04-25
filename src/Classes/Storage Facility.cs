@@ -7,7 +7,6 @@ namespace Trestlebridge.Classes
 {
     public class StorageFacility<T>
     {
-
         public List<T> ResourceList = new List<T>();
         private string _capacity;
 
@@ -29,14 +28,15 @@ namespace Trestlebridge.Classes
                 sb.Append(kvp.Value);
                 sb.Append(" ");
                 sb.Append(kvp.Key.ToLower());
+                if (kvp.Key != "Sheep" & kvp.Value >= 2)
+                {
+                    sb.Append("s");
+                }
                 if (i != resourceReport.Count - 1)
                 {
                     sb.Append(", ");
                 }
-
-
             }
-
 
             Console.WriteLine(sb.ToString());
             return (sb.ToString());

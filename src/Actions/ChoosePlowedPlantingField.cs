@@ -8,7 +8,6 @@ using Trestlebridge.Models.Facilities;
 
 namespace Trestlebridge.Actions
 {
-
     public class ChoosePlowedPlantingField
     {
         public static void CollectInput(Farm farm, List<Sesame> sesameSeeds)
@@ -17,13 +16,12 @@ namespace Trestlebridge.Actions
 
             for (int i = 0; i < farm.PlowedFieldList.Count; i++)
             {
-                 dynamic sesameSeedField = farm.PlantFacilityList[i];
+                dynamic sesameSeedField = farm.PlantFacilityList[i];
                 {
                     Console.WriteLine($"{i + 1}. {sesameSeedField.GetType().Name} ");
                     sesameSeedField.listResources();
                 }
             }
-
             Console.WriteLine();
 
             Console.WriteLine($"Plant the seed where?");

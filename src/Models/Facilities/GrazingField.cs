@@ -21,33 +21,6 @@ namespace Trestlebridge.Models.Facilities
                 return _capacity;
             }
         }
-        // public string listAnimals()
-        // {
-        //     Console.WriteLine($"({_grazingAnimalList.Count} animals out of {this._capacity})");
-        //     // List<IGrazing> list = new List<IGrazing>();
-        //     Dictionary<string, Int32> animalReport = new Dictionary<string, Int32>();
-        //     foreach (IGrazing grazingAnimal in this._grazingAnimalList)
-        //     {
-        //         string type = grazingAnimal.GetType().Name.ToString();
-        //         int count;
-        //         animalReport.TryGetValue(type, out count);
-        //         animalReport[type] = count + 1;
-
-        //         // Console.WriteLine(grazingAnimal.GetType().Name);
-        //     }
-        //     StringBuilder sb = new StringBuilder();
-        //     foreach (var kvp in animalReport)
-        //     {
-        //         sb.Append(kvp.Value);
-        //         sb.Append(" ");
-        //         sb.Append(kvp.Key.ToLower());
-        //         sb.Append(", ");
-        //     }
-
-        //     Console.WriteLine(sb.ToString());
-        //     return (sb.ToString());
-        // }
-
         public bool checkCapacity(Farm farm)
         {
             var grazingFieldList = farm.GrazingFieldList;
