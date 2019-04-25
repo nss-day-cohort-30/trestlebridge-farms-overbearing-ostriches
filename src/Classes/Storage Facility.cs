@@ -7,7 +7,6 @@ namespace Trestlebridge.Classes
 {
     public class StorageFacility<T>
     {
-
         public List<T> ResourceList = new List<T>();
         private string _capacity;
 
@@ -33,10 +32,7 @@ namespace Trestlebridge.Classes
                 {
                     sb.Append(", ");
                 }
-
-
             }
-
 
             Console.WriteLine(sb.ToString());
             return (sb.ToString());

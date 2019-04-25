@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Classes;
 using Trestlebridge.Models.Plants;
+using System.Linq;
 
 
 namespace Trestlebridge.Models.Facilities
@@ -60,6 +61,32 @@ namespace Trestlebridge.Models.Facilities
             this._plowedFieldFlowerList.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
+        }
+        public string listPlowedFieldFlowers()
+        {
+            // Console.WriteLine($"({ResourceList.Count} animals out of {this._capacity})");
+            Dictionary<string, Int32> resourceReport = new Dictionary<string, Int32>();
+            foreach (IPlowedFieldFlower flower in this._plowedFieldFlowerList)
+            {
+                string type = flower.GetType().Name.ToString();
+                int count;
+                resourceReport.TryGetValue(type, out count);
+                resourceReport[type] = count + 1;
+            }
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < resourceReport.Count; i++)
+            {
+                var kvp = resourceReport.ElementAt(i);
+                sb.Append(kvp.Value);
+                sb.Append(" ");
+                sb.Append(kvp.Key.ToLower());
+                if (i != resourceReport.Count - 1)
+                {
+                    sb.Append(", ");
+                }
+            }
+            Console.WriteLine(sb.ToString());
+            return (sb.ToString());
         }
     }
 }

@@ -62,7 +62,6 @@ resource being purchased.
             ChickenHouseList.Add(chickenHouse);
             FacilityList.Add(chickenHouse);
         }
-
         public void AddNaturalField(NaturalField naturalField)
         {
             NaturalFieldList.Add(naturalField);
@@ -79,10 +78,23 @@ resource being purchased.
                 var facility = FacilityList[i];
                 dynamic facilityAsClassType = Convert.ChangeType(facility, facility.GetType());
                 Console.WriteLine($"{i + 1}. {facility.GetType().Name}");
-                facilityAsClassType.listResources();
+                {
+                    if (facilityAsClassType is NaturalField)
+                    {
+                        facilityAsClassType.listNaturalFieldFlowers();
 
-            };
+                    }
+                    else if (facilityAsClassType is PlowedField)
+                    {
+                        facilityAsClassType.listPlowedFieldFlowers();
+                    }
+                    else
+                    {
+                        facilityAsClassType.listResources();
+                    }
+                };
 
+            }
             return report.ToString();
         }
     }
