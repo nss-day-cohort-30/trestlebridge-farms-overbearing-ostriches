@@ -6,8 +6,8 @@ using Trestlebridge.Models;
 using Trestlebridge.Models.Plants;
 using Trestlebridge.Classes;
 
-namespace Trestlebridge.Actions
-{
+// namespace Trestlebridge.Actions
+// {
 
     public class ChooseSunflowerPlantingField
     {
@@ -15,17 +15,17 @@ namespace Trestlebridge.Actions
         {
             Console.Clear();
 
-            for (int i = 0; i < farm.PlantFacilityList.Count; i++)
-            {
-                var sunflowerField = farm.PlantFacilityList[i];
-                {
-                    Console.WriteLine($"{i + 1}. {sunflowerField.GetType().Name} ");
-                    // sunflowerField.listResources();
-                }
-            }
-            Console.WriteLine();
+//             for (int i = 0; i < farm.PlantFacilityList.Count; i++)
+//             {
+//                 var sunflowerField = farm.PlantFacilityList[i];
+//                 {
+//                     Console.WriteLine($"{i + 1}. {sunflowerField.GetType().Name} ");
+//                     // sunflowerField.listResources();
+//                 }
+//             }
+//             Console.WriteLine();
 
-            Console.WriteLine($"Plant the seed where?");
+//             Console.WriteLine($"Plant the seed where?");
 
             Console.Write("> ");
             int choice = Int32.Parse(Console.ReadLine());
