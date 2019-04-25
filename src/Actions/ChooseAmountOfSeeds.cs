@@ -32,7 +32,8 @@ namespace Trestlebridge.Actions
                 }
 
                 ChooseSunflowerPlantingField.CollectInput(farm, sunflowerList);
-            } else if (chosenType == "Wildflower")
+            }
+            else if (chosenType == "Wildflower")
             {
                 List<Wildflower> wildflowerList = new List<Wildflower>();
                 int choice = Int32.Parse(Console.ReadLine());
@@ -41,7 +42,8 @@ namespace Trestlebridge.Actions
                     wildflowerList.Add(new Wildflower());
                 }
                 ChooseNaturalPlantingField.CollectInput(farm, wildflowerList);
-            } else if (chosenType == "Sesame")
+            }
+            else if (chosenType == "Sesame")
             {
                 List<Sesame> sesameSeedList = new List<Sesame>();
                 int choice = Int32.Parse(Console.ReadLine());

@@ -50,9 +50,6 @@ namespace Trestlebridge.Actions
                 var sunflowersForPlowedField = sunflowers.Cast<IPlowedFieldFlower>().ToList();
                 chosenField.AddPlantResource(sunflowersForPlowedField);
             }
-
-
-
         }
     }
 }

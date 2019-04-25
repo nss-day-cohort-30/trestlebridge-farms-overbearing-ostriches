@@ -83,19 +83,6 @@ namespace Trestlebridge
                     Console.WriteLine("Today is a great day for farming");
                     break;
                 }
-                // else if (option == "4")
-                // {
-                //     DisplayBanner();
-                //     Console.WriteLine(Trestlebridge);
-                //     Console.WriteLine("\n\n\n");
-                //     Console.WriteLine("Press return key to go back to main menu.");
-                //     Console.ReadLine();
-                // }
-                // else if (option == "5")
-                // {
-                //     Console.WriteLine("Today is a great day for farming");
-                //     break;
-                // }
                 else
                 {
                     Console.WriteLine($"Invalid option: {option}");

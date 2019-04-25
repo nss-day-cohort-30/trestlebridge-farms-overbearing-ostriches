@@ -18,16 +18,12 @@ namespace Trestlebridge.Actions
             for (int i = 0; i < farm.NaturalFieldList.Count; i++)
             {
                 dynamic wildflowerField = farm.NaturalFieldList[i];
-                // if (wildFlowers.Capacity <= farm.NaturalFieldList.Capacity)
-                //  {
-                //  }
-                //  else
+                wildflowerField.checkCapacityLimit();
                 {
                     Console.WriteLine($"{i + 1}. {wildflowerField.GetType().Name} ");
                     wildflowerField.listResources();
                 }
             }
-
             Console.WriteLine();
 
             Console.WriteLine($"Plant the seed where?");

@@ -63,7 +63,6 @@ namespace Trestlebridge.Actions
             ****     Press Enter To Return to Main Menu      ****");
                 Console.ReadLine();
             }
-
         }
     }
 }
