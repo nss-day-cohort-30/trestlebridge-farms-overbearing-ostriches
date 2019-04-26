@@ -15,6 +15,7 @@ namespace Trestlebridge.Actions
         {
             Console.Clear();
 
+            //loops through the natural fields and displays them
             for (int i = 0; i < farm.NaturalFieldList.Count; i++)
             {
                 dynamic wildflowerField = farm.NaturalFieldList[i];
@@ -28,12 +29,14 @@ namespace Trestlebridge.Actions
 
             Console.WriteLine($"Plant the seed where?");
 
+                //takes the users input and selects a field to plant in
             Console.WriteLine("> ");
             int choice = Int32.Parse(Console.ReadLine());
 
             choice = choice - 1;
             dynamic chosenField = farm.NaturalFieldList[choice];
 
+            //changes the type of the list so that natural fields will accept it
             var wildflowersForNaturalField = wildFlowers.Cast<INaturalFieldFlower>().ToList();
             chosenField.AddPlantResource(wildflowersForNaturalField);
         }

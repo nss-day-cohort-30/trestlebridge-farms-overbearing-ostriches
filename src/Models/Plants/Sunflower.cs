@@ -7,7 +7,11 @@ namespace Trestlebridge.Models.Plants
 {
     public class Sunflower : Plant, IResource, ISeedProducing, ICompostProducing, IPlowedFieldFlower, INaturalFieldFlower
     {
+
+        // holds the total amount of seeds this plant will produce 
         private int _seedsProduced = 650;
+
+        //holds the type of the resource in this case it is a Sunflower
         public string Type { get; } = "Sunflower";
 
         public double Harvest()

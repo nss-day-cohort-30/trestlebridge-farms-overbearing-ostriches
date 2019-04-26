@@ -42,34 +42,37 @@ namespace Trestlebridge
                 Console.Write("> ");
                 string option = Console.ReadLine();
 
+                //if this option is selected the user will be brought to the facility purchasing screen
                 if (option == "1")
                 {
                     DisplayBanner();
                     CreateFacility.CollectInput(Trestlebridge);
                 }
+
+                //if this option is selected the user will be brought to the animal purchasing screen
                 else if (option == "2")
                 {
                     DisplayBanner();
                     PurchaseStock.CollectInput(Trestlebridge);
                 }
+
+                //if this option is selected the user will be brought to the seed purchasing string 
                 else if (option == "3")
                 {
                     DisplayBanner();
                     PurchaseSeeds.CollectInput(Trestlebridge);
 
                 }
-                else if (option == "3")
-                {
-                    DisplayBanner();
-                    PurchaseSeeds.CollectInput(Trestlebridge);
 
-                }
+
                 else if (option == "4")
                 {
                     DisplayBanner();
                     ProcessingOption.CollectInput(Trestlebridge);
 
                 }
+
+                //if this option is selected the user will be brought to a screen that displays all facilities, animals, and plants on the farm
                 else if (option == "5")
                 {
                     DisplayBanner();
@@ -78,6 +81,8 @@ namespace Trestlebridge
                     Console.WriteLine("Press return key to go back to main menu.");
                     Console.ReadLine();
                 }
+
+                // The weak soul can no longer farm. This option allows you to leave your homestead
                 else if (option == "6")
                 {
                     Console.WriteLine("Today is a great day for farming");

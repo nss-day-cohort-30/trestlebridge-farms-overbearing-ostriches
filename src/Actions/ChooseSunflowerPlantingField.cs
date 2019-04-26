@@ -18,7 +18,6 @@ namespace Trestlebridge.Actions
             Console.Clear();
 
             for (int i = 0; i < farm.PlantFacilityList.Count; i++)
-
             // sunflowerField may be Natural or Plowed Field
             {
                 dynamic sunflowerField = farm.PlantFacilityList[i];
@@ -40,6 +39,7 @@ namespace Trestlebridge.Actions
 
             dynamic chosenField = farm.PlantFacilityList[choice];
 
+            //lets the user plant sunflowers in plowed or natural fields 
             if (chosenField is NaturalField)
             {
                 var sunflowersForNaturalField = sunflowers.Cast<INaturalFieldFlower>().ToList();

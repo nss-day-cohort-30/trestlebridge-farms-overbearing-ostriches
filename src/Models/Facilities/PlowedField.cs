@@ -11,13 +11,20 @@ namespace Trestlebridge.Models.Facilities
 {
     public class PlowedField : StorageFacility<IPlowedFieldFlower>, IPlantFacility<IPlowedFieldFlower>, IFacility, ISunflowerPlantFacility
     {
+
+        //list the total capacity of the plowed fields 
         private int _capacity = 13;
         private Guid _id = Guid.NewGuid();
 
+
+        //a list that accepts all plants with the interface of IPlowedFieldFlower
         private List<IPlowedFieldFlower> _plowedFieldFlowerList = new List<IPlowedFieldFlower>();
 
+        //A list of plants 
         public List<Plant> plantList = new List<Plant>();
 
+
+        //returns the total capacity of the plowed field
         public double Capacity
         {
             get
@@ -26,6 +33,7 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
+        //adds plant resources to the plowed field list 
         public void AddPlantResource(IPlowedFieldFlower plant)
         {
             if (_plowedFieldFlowerList.Count < _capacity)
@@ -35,6 +43,8 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
+
+        //sunflowers needing there own add method again 
         public void AddPlantResource(Sunflower plant)
         {
             if (_plowedFieldFlowerList.Count < _capacity)
