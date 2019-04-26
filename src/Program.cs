@@ -7,6 +7,8 @@ namespace Trestlebridge
 {
     class Program
     {
+
+        //a method to create a banner for trestlebridge farms
         static void DisplayBanner()
         {
             Console.Clear();
@@ -21,6 +23,7 @@ namespace Trestlebridge
         }
 
         static void Main(string[] args)
+        //sets the console color
         {
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.DarkMagenta;
@@ -29,7 +32,9 @@ namespace Trestlebridge
 
             while (true)
             {
+                // displays the banner that was created above 
                 DisplayBanner();
+                // display all of the options to the user
                 Console.WriteLine("1. Create Facility");
                 Console.WriteLine("2. Purchase Animals");
                 Console.WriteLine("3. Purchase Seeds");

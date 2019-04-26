@@ -4,6 +4,6 @@ namespace Trestlebridge.Classes
 {
     public class Animal
     {
-            //yup
+            //the animal class we can apply to all animals
     }
 }

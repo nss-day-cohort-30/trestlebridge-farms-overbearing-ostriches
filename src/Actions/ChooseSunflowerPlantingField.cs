@@ -21,9 +21,7 @@ namespace Trestlebridge.Actions
             // sunflowerField may be Natural or Plowed Field
             {
                 dynamic sunflowerField = farm.PlantFacilityList[i];
-                // if (sunflowers.Capacity <= farm.PlantFacilityList.Capacity)
-                //  {
-                //  }
+                if(sunflowerField.checkCapacity(farm) == true)
                 {
                     Console.WriteLine($"{i + 1}. {sunflowerField.GetType().Name} ");
                     sunflowerField.listResources();
@@ -37,6 +35,8 @@ namespace Trestlebridge.Actions
 
             choice = choice - 1;
 
+            try 
+            {
             dynamic chosenField = farm.PlantFacilityList[choice];
 
             //lets the user plant sunflowers in plowed or natural fields 
@@ -49,6 +49,21 @@ namespace Trestlebridge.Actions
             {
                 var sunflowersForPlowedField = sunflowers.Cast<IPlowedFieldFlower>().ToList();
                 chosenField.AddPlantResource(sunflowersForPlowedField);
+            }
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine(@"
+                **** That is not a valid Field Choice ****
+            ****     Press Enter To Return to Main Menu      ****");
+                Console.ReadLine();
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Console.WriteLine(@"
+                **** That is not a valid Field Choice ****
+            ****     Press Enter To Return to Main Menu      ****");
+                Console.ReadLine();
             }
         }
     }

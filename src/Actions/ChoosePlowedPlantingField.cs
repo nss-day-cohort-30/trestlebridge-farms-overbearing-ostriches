@@ -16,7 +16,8 @@ namespace Trestlebridge.Actions
             //loops through all plowed fields and lists them
             for (int i = 0; i < farm.PlowedFieldList.Count; i++)
             {
-                 dynamic sesameSeedField = farm.PlantFacilityList[i];
+                 dynamic sesameSeedField = farm.PlowedFieldList[i];
+                 if(sesameSeedField.checkCapacity(farm) == true)
                 {
                     Console.WriteLine($"{i + 1}. {sesameSeedField.GetType().Name} ");
                     sesameSeedField.listResources();
@@ -32,11 +33,28 @@ namespace Trestlebridge.Actions
 
             // uses the users input to select which farm to plant at
             choice = choice - 1;
+            try
+            {
             dynamic chosenField = farm.PlantFacilityList[choice];
 
             //changes the type of the list of seeds to allow them to be planted
             var sesameSeedsForPlowedField = sesameSeeds.Cast<IPlowedFieldFlower>().ToList();
+
             chosenField.AddPlantResource(sesameSeedsForPlowedField);
+            }catch (FormatException ex)
+            {
+                Console.WriteLine(@"
+                **** That is not a valid Field Choice ****
+            ****     Press Enter To Return to Main Menu      ****");
+                Console.ReadLine();
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Console.WriteLine(@"
+                **** That is not a valid Field Choice ****
+            ****     Press Enter To Return to Main Menu      ****");
+                Console.ReadLine();
+            }
         }
     }
 }

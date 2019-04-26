@@ -43,16 +43,20 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
-        // public int checkCapacityLimit(Farm farm)
-        // {
+        public bool checkCapacity(Farm farm)
+        {
 
-        //   var capacityLimit = this.Capacity - _naturalFieldFlowerList.Count;
+          var naturalFieldList = farm.NaturalFieldList;
 
-        //     if (this.Capacity > _naturalFieldFlowerList.Count)
-        //     {
-        //          return capacityLimit;
-        //     }
-        // }
+            if (this.Capacity > _naturalFieldFlowerList.Count)
+            {
+                 return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
 
 

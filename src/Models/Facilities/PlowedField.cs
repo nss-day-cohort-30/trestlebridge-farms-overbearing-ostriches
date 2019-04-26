@@ -33,6 +33,20 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
+        public bool checkCapacity(Farm farm)
+        {
+            var plowedFieldList = farm.PlowedFieldList;
+            if (this.Capacity > _plowedFieldFlowerList.Count)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
         //adds plant resources to the plowed field list 
         public void AddPlantResource(IPlowedFieldFlower plant)
         {
