@@ -7,6 +7,8 @@ namespace Trestlebridge.Classes
 {
     public class StorageFacility<T>
     {
+
+        //a list of all resources that have been processed.
         public List<T> ResourceList = new List<T>();
         private string _capacity;
 

@@ -2,7 +2,7 @@ namespace Trestlebridge.Classes
 {
     public class Plant
     {
-        //Its a plant
+        //a plant class we can put on all plants 
 
     }
 }
