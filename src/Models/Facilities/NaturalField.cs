@@ -82,7 +82,7 @@ namespace Trestlebridge.Models.Facilities
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Natural field {shortId} has {this._naturalFieldFlowerList.Count} rows of plants\n");
+            output.Append($"Natural field {shortId} has {this._naturalFieldFlowerList.Count} plants\n");
             this._naturalFieldFlowerList.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
@@ -105,7 +105,14 @@ namespace Trestlebridge.Models.Facilities
                 var kvp = resourceReport.ElementAt(i);
                 sb.Append(kvp.Value);
                 sb.Append(" ");
+                sb.Append("row");
+                if ( kvp.Value >= 2)
+                {
+                    sb.Append("s");
+                }
+                sb.Append(" of ");
                 sb.Append(kvp.Key.ToLower());
+                sb.Append("s");
                 if (i != resourceReport.Count - 1)
                 {
                     sb.Append(", ");

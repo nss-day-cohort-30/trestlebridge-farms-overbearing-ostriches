@@ -27,7 +27,7 @@ namespace Trestlebridge.Actions
 
             Console.WriteLine($"Plant the seed where?");
 
-            Console.WriteLine("> ");
+            Console.Write("> ");
             // takes the users input and turns it into an int
             int choice = Int32.Parse(Console.ReadLine());
 

@@ -88,7 +88,6 @@ namespace Trestlebridge.Models.Facilities
         }
         public string listPlowedFieldFlowers()
         {
-            // Console.WriteLine($"({ResourceList.Count} animals out of {this._capacity})");
             Dictionary<string, Int32> resourceReport = new Dictionary<string, Int32>();
             foreach (IPlowedFieldFlower flower in this._plowedFieldFlowerList)
             {
@@ -103,7 +102,17 @@ namespace Trestlebridge.Models.Facilities
                 var kvp = resourceReport.ElementAt(i);
                 sb.Append(kvp.Value);
                 sb.Append(" ");
+                sb.Append("row");
+                 if ( kvp.Value >= 2)
+                {
+                    sb.Append("s");
+                }
+                sb.Append(" of ");
                 sb.Append(kvp.Key.ToLower());
+                if (kvp.Key != "Sesame") 
+                {
+                sb.Append("s");
+                }
                 if (i != resourceReport.Count - 1)
                 {
                     sb.Append(", ");
