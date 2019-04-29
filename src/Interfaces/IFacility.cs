@@ -5,6 +5,6 @@ namespace Trestlebridge.Interfaces
 {
     public interface IFacility
     {
-        
+        //The interface we have given all facilities
     }
 }

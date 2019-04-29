@@ -10,6 +10,8 @@ namespace Trestlebridge.Actions
     {
         public static void CollectInput(Farm farm)
         {
+            //List out the seeds that can be purchased 
+
             Console.WriteLine("1. Sunflower Seeds");
             Console.WriteLine("2. Wildflower Seeds");
             Console.WriteLine("3. Sesame Seeds");
@@ -20,6 +22,8 @@ namespace Trestlebridge.Actions
             Console.Write("> ");
             string choice = Console.ReadLine();
 
+
+            //Choose the seed you wish to purchase
             string chosenType;
             if (choice == "1")
             {
@@ -38,8 +42,10 @@ namespace Trestlebridge.Actions
                 chosenType = "";
 
             }
+            //The try catch will stop the error if an invalid option is inputed and send the user back to the main menu
             try
             {
+                //Grabs the users selection and displays the next relevant page
                 switch (Int32.Parse(choice))
                 {
                     case 1:
@@ -56,6 +62,7 @@ namespace Trestlebridge.Actions
 
                 }
             }
+            //the catch that will display instructins to the user 
             catch (FormatException ex)
             {
                 Console.WriteLine(@"
@@ -63,7 +70,6 @@ namespace Trestlebridge.Actions
             ****     Press Enter To Return to Main Menu      ****");
                 Console.ReadLine();
             }
-
         }
     }
 }

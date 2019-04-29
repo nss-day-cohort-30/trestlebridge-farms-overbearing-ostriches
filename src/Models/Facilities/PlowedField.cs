@@ -11,13 +11,20 @@ namespace Trestlebridge.Models.Facilities
 {
     public class PlowedField : StorageFacility<IPlowedFieldFlower>, IPlantFacility<IPlowedFieldFlower>, IFacility, ISunflowerPlantFacility
     {
+
+        //list the total capacity of the plowed fields 
         private int _capacity = 13;
         private Guid _id = Guid.NewGuid();
 
+
+        //a list that accepts all plants with the interface of IPlowedFieldFlower
         private List<IPlowedFieldFlower> _plowedFieldFlowerList = new List<IPlowedFieldFlower>();
 
+        //A list of plants 
         public List<Plant> plantList = new List<Plant>();
 
+
+        //returns the total capacity of the plowed field
         public double Capacity
         {
             get
@@ -26,6 +33,21 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
+        public bool checkCapacity(Farm farm)
+        {
+            var plowedFieldList = farm.PlowedFieldList;
+            if (this.Capacity > _plowedFieldFlowerList.Count)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        //adds plant resources to the plowed field list 
         public void AddPlantResource(IPlowedFieldFlower plant)
         {
             if (_plowedFieldFlowerList.Count < _capacity)
@@ -35,6 +57,8 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
+
+        //sunflowers needing there own add method again 
         public void AddPlantResource(Sunflower plant)
         {
             if (_plowedFieldFlowerList.Count < _capacity)
@@ -64,7 +88,6 @@ namespace Trestlebridge.Models.Facilities
         }
         public string listPlowedFieldFlowers()
         {
-            // Console.WriteLine($"({ResourceList.Count} animals out of {this._capacity})");
             Dictionary<string, Int32> resourceReport = new Dictionary<string, Int32>();
             foreach (IPlowedFieldFlower flower in this._plowedFieldFlowerList)
             {
@@ -79,7 +102,17 @@ namespace Trestlebridge.Models.Facilities
                 var kvp = resourceReport.ElementAt(i);
                 sb.Append(kvp.Value);
                 sb.Append(" ");
+                sb.Append("row");
+                 if ( kvp.Value >= 2)
+                {
+                    sb.Append("s");
+                }
+                sb.Append(" of ");
                 sb.Append(kvp.Key.ToLower());
+                if (kvp.Key != "Sesame") 
+                {
+                sb.Append("s");
+                }
                 if (i != resourceReport.Count - 1)
                 {
                     sb.Append(", ");

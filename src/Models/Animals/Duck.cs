@@ -7,7 +7,7 @@ namespace Trestlebridge.Models.Animals
 {
     public class Duck : Animal, IResource, IMeatProducing
     {
-
+        
         private Guid _id = Guid.NewGuid();
         private double _meatProduced = .75;
 

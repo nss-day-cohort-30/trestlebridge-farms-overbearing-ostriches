@@ -9,16 +9,22 @@ using System.Linq;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class NaturalField : StorageFacility<INaturalFieldFlower>, IPlantFacility<INaturalFieldFlower>, IFacility, ISunflowerPlantFacility
+    public class NaturalField : StorageFacility<INaturalFieldFlower>, IFacility, ISunflowerPlantFacility
     {
+        //holds the capacity for plants of the field 
         private int _capacity = 10;
         private Guid _id = Guid.NewGuid();
 
+
+        // a list of natural field flowers 
         private List<INaturalFieldFlower> _naturalFieldFlowerList = new List<INaturalFieldFlower>();
 
+        //a list of all plants
         public List<Plant> plantList = new List<Plant>();
 
-        public double Capacity
+
+        //returns the capacity of the field 
+        public int Capacity
         {
             get
             {
@@ -26,6 +32,8 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
+
+        // adds a flower with the interface of natural field to our list of natural field flowers
         public void AddPlantResource(INaturalFieldFlower flower)
         {
             if (_naturalFieldFlowerList.Count < _capacity)
@@ -35,6 +43,24 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
+        public bool checkCapacity(Farm farm)
+        {
+
+          var naturalFieldList = farm.NaturalFieldList;
+
+            if (this.Capacity > _naturalFieldFlowerList.Count)
+            {
+                 return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+
+        // it may be a natural field flower but sunflowers are weird and need there own add method
         public void AddPlantResource(Sunflower sunflower)
         {
             if (_naturalFieldFlowerList.Count < _capacity)
@@ -79,7 +105,14 @@ namespace Trestlebridge.Models.Facilities
                 var kvp = resourceReport.ElementAt(i);
                 sb.Append(kvp.Value);
                 sb.Append(" ");
+                sb.Append("row");
+                if ( kvp.Value >= 2)
+                {
+                    sb.Append("s");
+                }
+                sb.Append(" of ");
                 sb.Append(kvp.Key.ToLower());
+                sb.Append("s");
                 if (i != resourceReport.Count - 1)
                 {
                     sb.Append(", ");

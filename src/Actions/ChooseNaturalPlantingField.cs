@@ -15,27 +15,47 @@ namespace Trestlebridge.Actions
         {
             Console.Clear();
 
+            //loops through the natural fields and displays them
             for (int i = 0; i < farm.NaturalFieldList.Count; i++)
             {
-                dynamic wildflowerField = farm.PlantFacilityList[i];
+                dynamic wildflowerField = farm.NaturalFieldList[i];
+               if( wildflowerField.checkCapacity(farm) == true)
                 {
                     Console.WriteLine($"{i + 1}. {wildflowerField.GetType().Name} ");
                     wildflowerField.listResources();
                 }
             }
-
             Console.WriteLine();
 
             Console.WriteLine($"Plant the seed where?");
 
-            Console.WriteLine("> ");
+                //takes the users input and selects a field to plant in
+            Console.Write("> ");
             int choice = Int32.Parse(Console.ReadLine());
 
             choice = choice - 1;
+            try 
+            {
             dynamic chosenField = farm.NaturalFieldList[choice];
 
+            //changes the type of the list so that natural fields will accept it
             var wildflowersForNaturalField = wildFlowers.Cast<INaturalFieldFlower>().ToList();
             chosenField.AddPlantResource(wildflowersForNaturalField);
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine(@"
+                **** That is not a valid Field Choice ****
+            ****     Press Enter To Return to Main Menu      ****");
+                Console.ReadLine();
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Console.WriteLine(@"
+                **** That is not a valid Field Choice ****
+            ****     Press Enter To Return to Main Menu      ****");
+                Console.ReadLine();
+            }
         }
     }
 }
